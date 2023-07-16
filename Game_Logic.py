@@ -25,7 +25,7 @@ class Game_Logic :
             elif (i == '?:') :
                 self.name_after_combine.clear()
                 break
-            elif ( begin and not i.isdigit() and (not i.endswith(":-") or not i.endswith(":+"))) : 
+            elif ( begin and not i.isdigit() and (not i.endswith(":-") or not i.endswith(":+")) and i != '+') : 
                 self.name_after_combine.append(i)
             
         
