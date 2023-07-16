@@ -11,7 +11,6 @@ class Game_Logic :
         for i in c_game.element_for_equa.sprites() : 
             link  = link  + i.tag_name + '+%2B+'
         link  += '&ref=input'
-        print(link)
         res = requests.get(link)
         soup = bs4.BeautifulSoup(res.text, features='html.parser')
         title = soup.select_one('title')
