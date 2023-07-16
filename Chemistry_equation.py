@@ -128,7 +128,6 @@ class Chemistry_game :
             if (self.game_logic.check_for_new_element(self)) : 
                 self.element_for_equa.empty()
                 for i in self.game_logic.name_after_combine : 
-                    print(i)
                     e = Element(i, self)
                     self.elements.add(e)
             else : 
