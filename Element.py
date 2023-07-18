@@ -18,7 +18,7 @@ class Element(Sprite) :
         # setting font and img
         self.font = pygame.font.SysFont(None, 30)
         self.text = self.font.render(c_tag, True, self.setting.element_text_color)
-        self.onclick = False
+        #self.onclick = False
         self.center_point = (0, 0)
         self.text_rect = self.text.get_rect(center = self.center_point)
         

@@ -34,6 +34,17 @@ class Setting :
 
         self.init_equation_dasboard()
 
+        # winner table 
+        self.winner_height = 300
+        self.winner_width = 600
+        self.winner_toscr_x = 300
+        self.winner_toscr_y = 200
+        self.winner_color = (204, 229, 255)
+
+        self.winner_button_height = 60
+        self.winner_button_width = 140
+
+
     # Init_equation_position 
     def init_equation_dasboard(self) : 
         arr = [[200, 0], [0, -200], [0, 200], [-200, 0], [200, -200], [-200, 200], [200, 200], [-200, -200]]

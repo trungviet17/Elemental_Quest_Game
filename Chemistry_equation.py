@@ -4,7 +4,8 @@ from Setting import Setting
 from Element import Element
 from Start_button import Start_button
 from Game_Logic import Game_Logic
-
+from aboard import Aboard
+from Winner_table import Winner_table
 
 
 class Chemistry_game : 
@@ -34,20 +35,35 @@ class Chemistry_game :
         # check game logic 
         self.game_logic = Game_Logic()
         
+        # target element 
+        self.target = "H2SO3"
+        self.aboard = Aboard(self)
 
+        # running 
+        self.running = True
+
+        # winner notice 
+        self.winner_table = self.screen.subsurface(pygame.Rect(self.setting.winner_toscr_x, self.setting.winner_toscr_y, self.setting.winner_width, self.setting.winner_height))
         
+        self.winner = Winner_table(self)
+
         
     def game_play(self) : 
         while(True) : 
+
             # check event 
             self.check_event()
 
             #setting screen  
             self.update_screen()
-            
-            #element update
-            self.elements_update()
-             
+
+        
+            if (self.running) : 
+                #element update
+                self.elements_update()
+            else : 
+                self.winning_notice()
+
             pygame.display.flip()
 
     # check event from player
@@ -55,7 +71,7 @@ class Chemistry_game :
         for event in pygame.event.get() : 
             if event.type == pygame.QUIT :
                 sys.exit()
-            elif event.type == pygame.MOUSEBUTTONDOWN: 
+            elif event.type == pygame.MOUSEBUTTONDOWN and self.running : 
                 mouse_pos = pygame.mouse.get_pos()
                 self.check_element_onclick(mouse_pos)
                 self.check_equation_table_onclick(mouse_pos)
@@ -77,14 +93,14 @@ class Chemistry_game :
         #self.screen.fill(self.setting.bg_color)
         self.screen.blit(self.back_ground, (0,0))
 
-
-        
         self.update_equation_table()
         # init start button
-        self.start.draw()
+        if(self.running) : self.start.draw()
 
+        self.aboard.prep_score()
+        self.aboard.showing()
         # init dash board 
-        self.dash_board.fill(self.setting.dash_color)
+        if (self.running) : self.dash_board.fill(self.setting.dash_color)
 
     # print element to dashboard 
     def elements_update(self) : 
@@ -120,20 +136,29 @@ class Chemistry_game :
                 self.elements.add(i)
                 self.element_for_equa.remove(i)
 
-    #check 
+    # check the new element after click start  
     def check_combine_element(self, mouse_pos) : 
         mouse_x, mouse_y = mouse_pos
         pos_x, pos_y = self.setting.start_button_center
         if (((pos_x - mouse_x)**2 + (pos_y - mouse_y)**2 <= self.setting.start_button_rad **2) ) :
             if (self.game_logic.check_for_new_element(self)) : 
                 self.element_for_equa.empty()
+                self.aboard.score += len(self.game_logic.name_after_combine) * 100
                 for i in self.game_logic.name_after_combine : 
+                    # find target element 
                     e = Element(i, self)
                     self.elements.add(e)
+                    if (i == self.target) : self.running = False
             else : 
                 for i in self.element_for_equa.sprites() : 
                     self.elements.add(i)
                 self.element_for_equa.empty()
+
+
+    def winning_notice(self) : 
+        self.winner_table.fill(self.setting.winner_color)
+        self.winner.showing()
+
 
 
 if __name__ == '__main__' : 
