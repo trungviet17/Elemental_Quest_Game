@@ -71,11 +71,17 @@ class Chemistry_game :
         for event in pygame.event.get() : 
             if event.type == pygame.QUIT :
                 sys.exit()
-            elif event.type == pygame.MOUSEBUTTONDOWN and self.running : 
+            elif event.type == pygame.MOUSEBUTTONDOWN :
                 mouse_pos = pygame.mouse.get_pos()
-                self.check_element_onclick(mouse_pos)
-                self.check_equation_table_onclick(mouse_pos)
-                self.check_combine_element(mouse_pos)
+                if self.running : 
+                    self.check_element_onclick(mouse_pos)
+                    self.check_equation_table_onclick(mouse_pos)
+                    self.check_combine_element(mouse_pos)
+                else : 
+                    self.check_winning_next_button(mouse_pos)
+                    self.check_winning_quit_button(mouse_pos)
+                
+
 
     # click to element
     def check_element_onclick(self, mouse_pos) : 
@@ -159,6 +165,22 @@ class Chemistry_game :
         self.winner_table.fill(self.setting.winner_color)
         self.winner.showing()
 
+
+    def check_winning_next_button(self, mouse_pos) : 
+        if self.winner.next_button_rect.collidepoint(mouse_pos) : 
+            self.running = True
+
+
+    def check_winning_quit_button(self, mouse_pos) : 
+        mouse_pos = self.change_mouse_pos(mouse_pos)
+        print(mouse_pos)
+        if self.winner.quit_button_rect.collidepoint(mouse_pos) : 
+            sys.exit()
+
+    def change_mouse_pos(self, mouse_pos) : 
+        mouse_pos_x, mouse_pos_y = mouse_pos
+        print(mouse_pos)
+        return (mouse_pos_x - self.setting.winner_toscr_x, mouse_pos_y - self.setting.winner_toscr_y)
 
 
 if __name__ == '__main__' : 
