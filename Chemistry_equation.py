@@ -17,7 +17,7 @@ class Chemistry_game :
         self.setting = Setting()
         self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
         pygame.display.set_caption("Chemistry Demo Game")
-        self.back_ground = pygame.image.load('back_ground.png').convert()
+        self.back_ground = pygame.image.load('res\\back_ground.png').convert()
 
         # dash board 
         self.dash_board = self.screen.subsurface(pygame.Rect(self.setting.change_dtosc_x, self.setting.change_dtosc_y, self.setting.dash_width, self.setting.dash_height))
