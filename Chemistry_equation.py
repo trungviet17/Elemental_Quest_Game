@@ -22,9 +22,6 @@ class Chemistry_game :
         # dash board 
         self.dash_board = self.screen.subsurface(pygame.Rect(self.setting.change_dtosc_x, self.setting.change_dtosc_y, self.setting.dash_width, self.setting.dash_height))
 
-        # element of game on dashboard
-        self.elements = pygame.sprite.Group()
-        self.default_element()
 
         # element of game on 
         self.element_for_equa = pygame.sprite.Group()
@@ -36,7 +33,7 @@ class Chemistry_game :
         self.game_logic = Game_Logic()
         
         # target element 
-        self.target = "H2SO3"
+        self.target = self.setting.target[0]
         self.aboard = Aboard(self)
 
         # running 
@@ -44,9 +41,11 @@ class Chemistry_game :
 
         # winner notice 
         self.winner_table = self.screen.subsurface(pygame.Rect(self.setting.winner_toscr_x, self.setting.winner_toscr_y, self.setting.winner_width, self.setting.winner_height))
-        
         self.winner = Winner_table(self)
 
+        # element of game on dashboard
+        self.elements = pygame.sprite.Group()
+        self.default_element()
         
     def game_play(self) : 
         while(True) : 
@@ -104,6 +103,8 @@ class Chemistry_game :
         if(self.running) : self.start.draw()
 
         self.aboard.prep_score()
+        self.aboard.prep_level()
+        self.aboard.prep_target()
         self.aboard.showing()
         # init dash board 
         if (self.running) : self.dash_board.fill(self.setting.dash_color)
@@ -120,7 +121,7 @@ class Chemistry_game :
                 
     # default_element          
     def default_element(self) : 
-        for i in self.setting.element_content : 
+        for i in self.setting.element_content[self.aboard.level - 1] : 
             e = Element(i, self)
             self.elements.add(e)
 
@@ -151,10 +152,11 @@ class Chemistry_game :
                 self.element_for_equa.empty()
                 self.aboard.score += len(self.game_logic.name_after_combine) * 100
                 for i in self.game_logic.name_after_combine : 
-                    # find target element 
                     e = Element(i, self)
                     self.elements.add(e)
                     if (i == self.target) : self.running = False
+                # clear all game_logic
+                self.game_logic.name_after_combine.clear()
             else : 
                 for i in self.element_for_equa.sprites() : 
                     self.elements.add(i)
@@ -167,19 +169,29 @@ class Chemistry_game :
 
 
     def check_winning_next_button(self, mouse_pos) : 
+        mouse_pos = self.change_mouse_pos(mouse_pos)
         if self.winner.next_button_rect.collidepoint(mouse_pos) : 
             self.running = True
+            
+            # reset game 
+            self.target = self.setting.target[self.aboard.level]
+            self.aboard.level += 1
+            self.aboard.score = 0
+            self.elements.empty()
+
+            self.default_element()
+
+
+            
 
 
     def check_winning_quit_button(self, mouse_pos) : 
         mouse_pos = self.change_mouse_pos(mouse_pos)
-        print(mouse_pos)
         if self.winner.quit_button_rect.collidepoint(mouse_pos) : 
             sys.exit()
 
     def change_mouse_pos(self, mouse_pos) : 
         mouse_pos_x, mouse_pos_y = mouse_pos
-        print(mouse_pos)
         return (mouse_pos_x - self.setting.winner_toscr_x, mouse_pos_y - self.setting.winner_toscr_y)
 
 

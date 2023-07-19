@@ -18,13 +18,16 @@ class Setting :
         # Elemet 
         self.element_rad = 40 
         self.element_color = (204, 204, 255)
-        self.element_content = ["H2", "O2", "SO2", "NO2", "KNO3", "CO2"]
+        self.element_content = [["NaOH", "NaOH", "SO3", "HCl", "CO2"], ['H2', 'CO2']]
         self.element_distance = 50
         self.element_text_color = (255, 255, 255)
 
         # equation dashboard 
         self.equation_dashboard_rad = 250
         self.equation_dashboard_color = (255, 153 , 153)
+
+        # level of game 
+        self.target = ["Na2SO4", "HNO3", "SO2"]
 
         # start button 
         self.start_button_rad = 50 

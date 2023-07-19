@@ -2,7 +2,6 @@ import bs4, requests
 
 class Game_Logic : 
     def __init__(self) :
-        #self.name_web = 'https://chemequations.com/en/?s='
         self.name_after_combine = []
 
     def check_for_new_element(self, c_game) : 

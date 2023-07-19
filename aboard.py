@@ -10,7 +10,7 @@ class Aboard :
         self.text_color = (255, 153, 153)
         self.font = pygame.font.SysFont(None, 48)
         
-        self.target_text = c_game.target
+        #self.target_text = c_game.target
         self.score = 0
         self.level = 1
 
@@ -19,7 +19,7 @@ class Aboard :
         self.prep_level()
 
     def prep_target(self) : 
-        target = "Target: " + self.target_text
+        target = "Target: " + self.setting.target[self.level - 1]
         self.target_img = self.font.render(target, True, self.text_color)
 
         self.target_img_rect = self.target_img.get_rect()
