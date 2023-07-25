@@ -1,4 +1,4 @@
-
+import pygame
 class Setting : 
     def __init__(self) : 
         #screen setting 
@@ -18,7 +18,7 @@ class Setting :
         # Elemet 
         self.element_rad = 40 
         self.element_color = (204, 204, 255)
-        self.element_content = [["NaOH", "NaOH", "SO3", "HCl", "CO2"], ['H2', 'CO2']]
+        self.element_content = [["NaOH", "MgSO4", "SO3", "HCl", "CO2", "KNO3", "NaCl", "MgCl2"], ['H2', 'CO2']]
         self.element_distance = 50
         self.element_text_color = (255, 255, 255)
 
@@ -47,6 +47,28 @@ class Setting :
         self.winner_button_height = 60
         self.winner_button_width = 140
 
+
+        # title setting
+        self.title_header_text_color = (204, 255, 255)
+
+
+        # dictionary setting
+        self.dictionary_table_height = 600
+        self.dictionary_table_width = 600
+        
+
+        ''' loading asset  '''
+        # title asset 
+        self.play_button = pygame.image.load('res\\menu\\play.png')
+       
+        self.about_button = pygame.image.load('res\\menu\\about.png')
+
+        self.setting_button = pygame.image.load('res\\menu\\setting.png')
+
+        self.prize_button = pygame.image.load('res\\menu\\prize.png')
+
+        self.leader_button = pygame.image.load('res\\menu\\leader.png')
+    
 
     # Init_equation_position 
     def init_equation_dasboard(self) : 

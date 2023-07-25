@@ -12,7 +12,6 @@ class Element(Sprite) :
         self.screen = c_game.screen 
         self.screen_rect = c_game.screen.get_rect()
         
-        self.dash_board_screen = c_game.dash_board
         self.setting = c_game.setting
 
         # setting font and img
