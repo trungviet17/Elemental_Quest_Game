@@ -1,6 +1,6 @@
 import pygame
 
-class Button : 
+class Title_Button : 
     def __init__(self, x, y, img, surface) : 
         self.width = img.get_width()
         self.height = img.get_height()

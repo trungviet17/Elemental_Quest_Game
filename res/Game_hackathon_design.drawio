@@ -1,0 +1,87 @@
+<mxfile host="Electron" modified="2023-07-25T09:46:58.879Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="ceKuipa1Db4Mi5DGPMdk" version="21.6.1" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1551" dy="1029" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="2336" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="t156WMqaKAp3wA-ipekG-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-0" target="t156WMqaKAp3wA-ipekG-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1435" y="1220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1670" y="1220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-0" target="t156WMqaKAp3wA-ipekG-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-0" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;i style=&quot;font-size: 15px;&quot;&gt;&amp;lt;&amp;lt;Abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;State&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ game ( Main game)&amp;nbsp;&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ prev_game (Prev game state)&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ render()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ enter_state()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ exit_state()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1060" y="920" width="280" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-2" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Title&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ game&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ render()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="870" y="1220" width="170" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-4" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Chemistry Game&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+&amp;nbsp;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ render()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1102.5" y="1220" width="195" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-7" target="t156WMqaKAp3wA-ipekG-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2370" y="1190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-7" target="t156WMqaKAp3wA-ipekG-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-7" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Button&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ draw()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2340" y="980" width="150" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-9" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Title_Button&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ draw()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2210" y="1200" width="190" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-10" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Start_Button&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ draw()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2440" y="1200" width="210" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-14" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Dictionary&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ render&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1341" y="1220" width="190" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-16" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Game&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ screen&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ state_stack&amp;nbsp;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ game_loop()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update_screen()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ check_event()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ load_asset()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1520" y="690" width="290" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-20" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Winner_table&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ update()&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ render()&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1590" y="1220" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;dashPattern=8 8;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=15;entryX=0.427;entryY=0.99;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-23" target="t156WMqaKAp3wA-ipekG-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-23" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Element&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ draw()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1180" y="1480" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.419;entryY=0.998;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;dashPattern=8 8;strokeWidth=2;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-26" target="t156WMqaKAp3wA-ipekG-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-26" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Game_Logic&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ attribute&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ check_new_element&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="870" y="1480" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;strokeWidth=2;dashPattern=8 8;fontSize=15;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="t156WMqaKAp3wA-ipekG-28" target="t156WMqaKAp3wA-ipekG-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="1420" />
+              <mxPoint x="1185" y="1420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-28" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;aboard&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ Level&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ Score&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ Target&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ draw()&amp;nbsp;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="1480" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="t156WMqaKAp3wA-ipekG-30" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 15px;&quot;&gt;&lt;b style=&quot;font-size: 15px;&quot;&gt;Setting&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 15px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;+ Setting attribute&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 15px;&quot;&gt;&lt;br style=&quot;font-size: 15px;&quot;&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=15;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1950" y="995" width="250" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

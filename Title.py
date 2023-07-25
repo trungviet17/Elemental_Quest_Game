@@ -1,17 +1,17 @@
 import pygame.font
 from State import State 
-from Button import Button
+from Button import Title_Button
 from Chemistry_equation import Chemistry_game
 # Surface của button và title có thể xảy ra lỗi khi được truyền vào 2 biến khác nhau
 
 class Title(State) : 
     def __init__(self, game) : 
         State.__init__(self, game)
-        self.play_button = Button(0, 0, self.setting.play_button, self.screen)
-        self.about_button = Button(0, 0, self.setting.about_button, self.screen)
-        self.setting_button = Button(0, 0, self.setting.setting_button, self.screen)
-        self.prize_button = Button(0, 0, self.setting.prize_button, self.screen)
-        self.leader_button = Button(0, 0, self.setting.leader_button, self.screen)
+        self.play_button = Title_Button(0, 0, self.setting.play_button, self.screen)
+        self.about_button = Title_Button(0, 0, self.setting.about_button, self.screen)
+        self.setting_button = Title_Button(0, 0, self.setting.setting_button, self.screen)
+        self.prize_button = Title_Button(0, 0, self.setting.prize_button, self.screen)
+        self.leader_button = Title_Button(0, 0, self.setting.leader_button, self.screen)
         self.surface_rect = self.screen.get_rect()
         
         
