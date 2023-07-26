@@ -69,6 +69,8 @@ class Setting :
 
         self.leader_button = pygame.image.load('res\\menu\\leader.png')
 
+        self.title = pygame.image.load('res\\backgound\\Title.png')
+
 
         # background_loading 
         self.back_ground_1 = pygame.image.load('res\\backgound\\background_1.png')

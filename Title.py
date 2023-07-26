@@ -1,4 +1,4 @@
-
+import pygame
 from State import State 
 from Button import Title_Button
 from Chemistry_equation import Chemistry_game
@@ -9,12 +9,13 @@ from About_title import About_title
 class Title(State) : 
     def __init__(self, game) : 
         State.__init__(self, game)
-        self.play_button = Title_Button(0, 0, self.setting.play_button, self.screen)
-        self.about_button = Title_Button(0, 0, self.setting.about_button, self.screen)
-        self.setting_button = Title_Button(0, 0, self.setting.setting_button, self.screen)
-        self.prize_button = Title_Button(0, 0, self.setting.prize_button, self.screen)
-        self.leader_button = Title_Button(0, 0, self.setting.leader_button, self.screen)
+        self.play_button = Title_Button(0, 0, self.setting.play_button, self.screen,0.3)
+        self.about_button = Title_Button(0, 0, self.setting.about_button, self.screen, 0.3)
+        self.setting_button = Title_Button(0, 0, self.setting.setting_button, self.screen, 0.3)
+        self.prize_button = Title_Button(0, 0, self.setting.prize_button, self.screen, 0.3)
+        self.leader_button = Title_Button(0, 0, self.setting.leader_button, self.screen, 0.3)
         self.surface_rect = self.screen.get_rect()
+        self.title = self.setting.title
         self.background = Background_Scrolling(game)
 
         self.set_position()
@@ -28,11 +29,12 @@ class Title(State) :
         elif self.about_button.isPress : 
             about = About_title(self.game)
             about.enter_state()
-            self.play_button.isPress = False
+            self.about_button.isPress = False
 
     def render(self):
         
         self.background.draw()
+        self.screen.blit(self.title, self.title_rect)
         self.play_button.draw()
         self.about_button.draw()
         self.leader_button.draw()
@@ -43,6 +45,7 @@ class Title(State) :
     def set_position(self) : 
         #surface_rect = surface.get_rect()
         self.surface_rect = self.screen.get_rect()
+        
         # setting play_button 
         self.play_button.img_rect.centerx = self.surface_rect.centerx
         self.play_button.img_rect.centery = self.surface_rect.centery + 150
@@ -62,6 +65,10 @@ class Title(State) :
         # leader button 
         self.leader_button.img_rect.left = self.surface_rect.left + 40 
         self.leader_button.img_rect.bottom = self.surface_rect.bottom - 40
+
+        self.title_rect = self.title.get_rect()
+        self.title_rect.centerx = self.surface_rect.centerx
+        self.title_rect.centery = self.surface_rect.centery - 120
         
     
 
