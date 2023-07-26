@@ -25,11 +25,11 @@ class Background_Scrolling :
         self.scroll = 0 
 
     def draw(self) : 
-        self.scroll += 1
+        self.scroll += 1.5
         for k in range(10) : 
             speed = 1
             for i in self.back_ground_lst : 
-                self.screen.blit(i, (k * self.bg_width - self.scroll * speed, 0))
+                self.screen.blit(i, (k * self.bg_width - int(self.scroll * speed), 0))
                 speed += 0.4
         if (self.scroll * speed > 10 * self.bg_width) : self.scroll = 0
     

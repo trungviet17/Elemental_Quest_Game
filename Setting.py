@@ -85,6 +85,15 @@ class Setting :
         self.close_2 = pygame.image.load('res\\title_state\\close_2.png')
         self.bg = pygame.image.load('res\\title_state\\bg.png')
         self.table = pygame.image.load('res\\title_state\\table.png')
+
+        # setting state loading 
+        self.setting_header = pygame.image.load('res\\title_state\\settings\\92.png')
+        self.setting_sound_1 = pygame.image.load('res\\title_state\\settings\\93.png')
+        self.setting_sound_2 = pygame.image.load('res\\title_state\\settings\\94.png')
+        self.setting_off = pygame.image.load('res\\title_state\\settings\\95.png')
+        self.setting_on = pygame.image.load('res\\title_state\\settings\\96.png')
+        self.setting_plus = pygame.image.load('res\\title_state\\settings\\97.png')
+        self.setting_subtract = pygame.image.load('res\\title_state\\settings\\98.png')
     
 
     # Init_equation_position 
