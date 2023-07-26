@@ -31,11 +31,11 @@ class Game :
             if event.type == pygame.QUIT : 
                 self.running = False
                 sys.exit()
-            elif event.type == pygame.MOUSEBUTTONUP : 
-                mouse_pos = pygame.mouse.get_pos()
+            # elif event.type == pygame.MOUSEBUTTONUP : 
+            #     mouse_pos = pygame.mouse.get_pos()
 
-            elif event.type == pygame.MOUSEBUTTONDOWN : 
-                mouse_pos = pygame.mouse.get_pos()
+            # elif event.type == pygame.MOUSEBUTTONDOWN : 
+            #     mouse_pos = pygame.mouse.get_pos()
 
     # load asset
     def load_asset(self) : 

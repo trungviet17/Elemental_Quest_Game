@@ -30,8 +30,8 @@ class Background_Scrolling :
             speed = 1
             for i in self.back_ground_lst : 
                 self.screen.blit(i, (k * self.bg_width - self.scroll * speed, 0))
-                speed += 0.1
-        if (self.scroll * speed > 5 * self.bg_width) : self.scroll = 0
+                speed += 0.2
+        if (self.scroll * speed > 20 * self.bg_width) : self.scroll = 0
     
 
         

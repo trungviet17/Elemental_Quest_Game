@@ -77,6 +77,12 @@ class Setting :
         self.back_ground_4 = pygame.image.load('res\\backgound\\background_4.png')
         self.back_ground_5 = pygame.image.load('res\\backgound\\background_5.png')
         self.back_ground_6 = pygame.image.load('res\\backgound\\background_6.png')
+
+
+        # title state loading 
+        self.close_2 = pygame.image.load('res\\title_state\\close_2.png')
+        self.bg = pygame.image.load('res\\title_state\\bg.png')
+        self.table = pygame.image.load('res\\title_state\\table.png')
     
 
     # Init_equation_position 
