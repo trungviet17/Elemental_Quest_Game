@@ -1,6 +1,5 @@
 import pygame
 import sys
-from Setting import Setting
 from Element import Element
 from Button import Start_button
 from Game_Logic import Game_Logic

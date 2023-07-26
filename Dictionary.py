@@ -11,7 +11,7 @@ class Dictionary(State) :
 
         #self.setting = Setting()
         #self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
-        pygame.display.set_caption("Dictionary Demo")
+        #pygame.display.set_caption("Dictionary Demo")
 
         self.background = self.setting.back_ground_4
 

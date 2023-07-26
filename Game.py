@@ -39,7 +39,8 @@ class Game :
 
     # load asset
     def load_asset(self) : 
-        self.title_img = self.setting.back_ground_4
+        #self.title_img = self.setting.back_ground_4
+        pass
         
         
 
