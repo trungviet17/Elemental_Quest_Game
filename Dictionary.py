@@ -2,16 +2,18 @@ from chemlib import Compound
 import pygame , sys
 from Setting import Setting
 from Element import Element
+from State import State
 
-class Dictionary : 
-    def __init__(self) : 
-        pygame.init()
+class Dictionary(State) : 
+    def __init__(self, game) :
+        State.__init__(self,game) 
+        #pygame.init()
 
-        self.setting = Setting()
-        self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
+        #self.setting = Setting()
+        #self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
         pygame.display.set_caption("Dictionary Demo")
 
-        self.background = pygame.image.load('res\\backgound\\background_5.png')
+        self.background = self.setting.back_ground_4
 
         self.table = pygame.Rect(100, 100, self.setting.dictionary_table_width, self.setting.dictionary_table_height)
 
@@ -56,6 +58,6 @@ class Dictionary :
             e = Element(i, self)
             self.elements.add(e)
 
-if __name__ == '__main__' : 
-    ai = Dictionary()
-    ai.loop()
+# if __name__ == '__main__' : 
+#     ai = Dictionary()
+#     ai.loop()

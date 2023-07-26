@@ -39,7 +39,7 @@ class Game :
 
     # load asset
     def load_asset(self) : 
-        self.title_img = pygame.image.load('res\\backgound\\background_4.png').convert()
+        self.title_img = self.setting.back_ground_4
         
         
 

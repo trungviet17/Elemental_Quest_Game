@@ -68,6 +68,15 @@ class Setting :
         self.prize_button = pygame.image.load('res\\menu\\prize.png')
 
         self.leader_button = pygame.image.load('res\\menu\\leader.png')
+
+
+        # background_loading 
+        self.back_ground_1 = pygame.image.load('res\\backgound\\background_1.png')
+        self.back_ground_2 = pygame.image.load('res\\backgound\\background_2.png')
+        self.back_ground_3 = pygame.image.load('res\\backgound\\background_3.png')
+        self.back_ground_4 = pygame.image.load('res\\backgound\\background_4.png')
+        self.back_ground_5 = pygame.image.load('res\\backgound\\background_5.png')
+        self.back_ground_6 = pygame.image.load('res\\backgound\\background_6.png')
     
 
     # Init_equation_position 
