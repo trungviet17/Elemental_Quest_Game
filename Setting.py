@@ -94,7 +94,15 @@ class Setting :
         self.setting_on = pygame.image.load('res\\title_state\\settings\\96.png')
         self.setting_plus = pygame.image.load('res\\title_state\\settings\\97.png')
         self.setting_subtract = pygame.image.load('res\\title_state\\settings\\98.png')
-    
+
+        # prizing state loading 
+        self.prize_header = pygame.image.load('res\\title_state\\prize_state\\header.png')
+        self.prize_bg_1 = pygame.image.load('res\\title_state\\prize_state\\bg_1.png')
+        self.prize_table = pygame.image.load('res\\title_state\\prize_state\\table_1.png')
+        self.prize_dot = pygame.image.load('res\\title_state\\prize_state\\dot.png')
+        self.prize_face = pygame.image.load('res\\title_state\\prize_state\\face.png')
+        self.prize_scroll = pygame.image.load('res\\title_state\\prize_state\\scroll.png')
+        self.prize_btn = pygame.image.load('res\\title_state\\prize_state\\btn.png')
 
     # Init_equation_position 
     def init_equation_dasboard(self) : 

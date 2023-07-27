@@ -44,3 +44,6 @@ class Start_button :
     def draw(self) : 
         pygame.draw.circle(self.screen, self.setting.start_button_color, self.setting.start_button_center, self.setting.start_button_rad)
         self.screen.blit(self.text, self.text_rect)
+
+
+

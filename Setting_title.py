@@ -19,6 +19,13 @@ class Setting_title(State) :
         self.setting_subtract = Title_Button(0, 0, self.setting.setting_subtract, self.screen, self.scale)
 
         self.back_ground = Background_Scrolling(game)
+
+        self.font = pygame.font.SysFont(None, 48)
+        self.music_text = self.font.render("MUSIC", True, (51, 0, 0))
+        self.sound_text = self.font.render("SOUND", True, (51, 0, 0))
+        self.fill = 0
+
+
         self.set_position()
 
     def render(self) : 
@@ -26,8 +33,15 @@ class Setting_title(State) :
         self.screen.blit(self.bg, self.bg_rect)
         self.screen.blit(self.table, self.table_rect)
         self.screen.blit(self.header, self.header_rect)
+        self.screen.blit(self.sound_bar, self.sound_bar_rect)
+        self.setting_plus.draw()
+        self.setting_subtract.draw()
         self.setting_music.draw()
         self.setting_sound.draw()
+        
+        self.screen.blit(self.music_text, self.music_text_rect)
+        self.screen.blit(self.sound_text, self.sound_text_rect)
+        
         self.close.draw()
         
 
@@ -49,6 +63,14 @@ class Setting_title(State) :
             elif self.setting_sound.img == self.setting.setting_off : 
                 self.setting_sound.set_img(self.setting.setting_on)
             self.setting_sound.isPress = False
+        
+        if self.setting_plus.isPress  :
+             pass
+            
+
+        if self.setting_subtract.isPress : 
+            pass
+        
 
     def set_position(self):
         self.screen_rect = self.screen.get_rect()
@@ -75,5 +97,22 @@ class Setting_title(State) :
         self.setting_sound.img_rect.right = self.setting_music.img_rect.right
         self.setting_sound.img_rect.top = self.setting_music.img_rect.bottom + 20
 
+        self.sound_bar_rect = self.sound_bar.get_rect()
+        self.sound_bar_rect.centerx = self.bg_rect.centerx 
+        self.sound_bar_rect.bottom = self.table_rect.bottom - int(self.table.get_height() * self.scale // 5)
+
+        self.setting_plus.img_rect.centerx = self.sound_bar_rect.left 
+        self.setting_plus.img_rect.centery = self.sound_bar_rect.centery
+
+        self.setting_subtract.img_rect.centerx = self.sound_bar_rect.right
+        self.setting_subtract.img_rect.centery = self.sound_bar_rect.centery
+
+        self.music_text_rect = self.music_text.get_rect()
+        self.music_text_rect.centery = self.setting_music.img_rect.centery
+        self.music_text_rect.left = self.bg_rect.left + int(self.bg.get_width() * self.scale // 3)
+
+        self.sound_text_rect = self.sound_text.get_rect()
+        self.sound_text_rect.left = self.music_text_rect.left
+        self.sound_text_rect.centery = self.setting_sound.img_rect.centery
 
         
