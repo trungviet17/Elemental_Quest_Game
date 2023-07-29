@@ -5,6 +5,7 @@ from Chemistry_equation import Chemistry_game
 from Background_Scrolling import Background_Scrolling
 from About_title import About_title
 from Setting_title import Setting_title
+from Prize_title import Prize_title
 # Surface của button và title có thể xảy ra lỗi khi được truyền vào 2 biến khác nhau
 
 class Title(State) : 
@@ -27,14 +28,19 @@ class Title(State) :
             ai = Chemistry_game(self.game)
             ai.enter_state()
             self.play_button.isPress = False
-        elif self.about_button.isPress : 
+        if self.about_button.isPress : 
             about = About_title(self.game)
             about.enter_state()
             self.about_button.isPress = False
-        elif self.setting_button.isPress : 
+        if self.setting_button.isPress : 
             setting = Setting_title(self.game)
             setting.enter_state()
             self.setting_button.isPress = False
+        if self.prize_button.isPress : 
+            prize = Prize_title(self.game)
+            prize.enter_state()
+            self.prize_button.isPress = False
+
 
     def render(self):
         
