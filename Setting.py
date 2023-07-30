@@ -85,6 +85,7 @@ class Setting :
         self.close_2 = pygame.image.load('res\\title_state\\close_2.png')
         self.bg = pygame.image.load('res\\title_state\\bg.png')
         self.table = pygame.image.load('res\\title_state\\table.png')
+        self.content_button = pygame.image.load('res\\title_state\\about_state\\btn.png')
 
         # setting state loading 
         self.setting_header = pygame.image.load('res\\title_state\\settings\\92.png')
