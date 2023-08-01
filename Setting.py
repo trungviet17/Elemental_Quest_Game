@@ -105,6 +105,27 @@ class Setting :
         self.prize_scroll = pygame.image.load('res\\title_state\\prize_state\\scroll.png')
         self.prize_btn = pygame.image.load('res\\title_state\\prize_state\\btn.png')
 
+        # Level select state
+        self.level_select_bg = pygame.image.load('res\\level_select\\bg.png')
+        self.level_select_close = pygame.image.load('res\\level_select\\close_2.png')
+        self.level_select_dot_1 = pygame.image.load('res\\level_select\\dot_a.png')
+        self.level_select_dot_2 = pygame.image.load('res\\level_select\\dot_d.png')
+        self.level_select_header = pygame.image.load('res\\level_select\\header.png')
+        self.level_select_tb_2 = pygame.image.load('res\\level_select\\table2.png')
+        
+        # level
+        self.level_tb = pygame.image.load('res\\level_select\\table.png')
+        self.level_star_1 = pygame.image.load('res\level_select\star_1.png')
+        self.level_star_2 = pygame.image.load('res\\level_select\\star_2.png')
+        self.level_star_3 = pygame.image.load('res\\level_select\\star_3.png')
+        self.level_star_4 = pygame.image.load('res\\level_select\\star_4.png')
+        self.level_lock = pygame.image.load('res\\level_select\\lock.png')
+
+
+        # btn 
+        self.next_button = pygame.image.load('res\\btn\\next.png')
+        self.prew_button = pygame.image.load('res\\btn\\prew.png')
+
     # Init_equation_position 
     def init_equation_dasboard(self) : 
         arr = [[200, 0], [0, -200], [0, 200], [-200, 0], [200, -200], [-200, 200], [200, 200], [-200, -200]]
