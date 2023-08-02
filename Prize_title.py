@@ -50,11 +50,11 @@ class Prize_title(State) :
 
 
     def update(self) : 
-        if self.close.isPress : 
+        if self.close.action : 
             self.exit_state()
-            self.close.isPress = False
+           
         pos = pygame.mouse.get_pos()
-        if self.prize_dot.isPress and pos[1] <= self.prize_scroll_rect.bottom and pos[1] >= self.prize_scroll_rect.top: 
+        if self.prize_dot.action and pos[1] <= self.prize_scroll_rect.bottom and pos[1] >= self.prize_scroll_rect.top: 
             self.prize_dot.img_rect.centery = pos[1] 
         if self.prize_scroll_rect.collidepoint(pos) and pygame.mouse.get_pressed()[0] : 
             self.prize_dot.img_rect.centery = pos[1]

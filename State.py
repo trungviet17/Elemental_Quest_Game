@@ -5,6 +5,7 @@ class State :
         self.prev_game = None
         self.setting = game.setting
         self.screen = game.screen
+        self.screen_rect = self.screen.get_rect()
 
     def update(self) : 
         pass 

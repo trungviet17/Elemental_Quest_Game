@@ -14,6 +14,7 @@ class Title_Button :
         self.scaled_width = int(self.width * (self.scale + 0.05))
         self.scaled_height = int(self.height * (self.scale + 0.05))
         self.img_scacle = pygame.transform.scale(self.img, (self.scaled_width, self.scaled_height))
+        self.action = False
 
     def set_img(self, img) : 
         self.img = img
@@ -22,14 +23,17 @@ class Title_Button :
 
     def draw(self) : 
         pos = pygame.mouse.get_pos()
+        self.action = False
 
         if self.img_rect.collidepoint(pos) : 
             self.screen.blit(self.img_scacle, ((self.img_rect.left + self.img_rect.right - self.scaled_width) // 2, (self.img_rect.top + self.img_rect.bottom - self.scaled_height) // 2))
-            if pygame.mouse.get_pressed()[0] == 1 : self.isPress = True
-            else : self.isPress = False
+            if pygame.mouse.get_pressed()[0] == 1 and self.isPress == False : 
+                self.action = True
+                self.isPress = True
+            if pygame.mouse.get_pressed()[0] == 0 : self.isPress = False
         else : 
             self.screen.blit(self.img_to_screen, self.img_rect)
-            self.isPress = False
+            
 
 
 class Start_button : 

@@ -6,6 +6,7 @@ from Background_Scrolling import Background_Scrolling
 from About_title import About_title
 from Setting_title import Setting_title
 from Prize_title import Prize_title
+from Level_seclect import Level_select
 # Surface của button và title có thể xảy ra lỗi khi được truyền vào 2 biến khác nhau
 
 class Title(State) : 
@@ -24,22 +25,22 @@ class Title(State) :
         
         
     def update(self):
-        if self.play_button.isPress : 
-            ai = Chemistry_game(self.game)
-            ai.enter_state()
-            self.play_button.isPress = False
-        if self.about_button.isPress : 
+        if self.play_button.action : 
+            lv = Level_select(self.game)
+            lv.enter_state()
+            
+        if self.about_button.action : 
             about = About_title(self.game)
             about.enter_state()
-            self.about_button.isPress = False
-        if self.setting_button.isPress : 
+            
+        if self.setting_button.action : 
             setting = Setting_title(self.game)
             setting.enter_state()
-            self.setting_button.isPress = False
-        if self.prize_button.isPress : 
+            
+        if self.prize_button.action : 
             prize = Prize_title(self.game)
             prize.enter_state()
-            self.prize_button.isPress = False
+            
 
 
     def render(self):

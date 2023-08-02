@@ -39,15 +39,15 @@ class About_title(State) :
         self.close.draw()
 
     def update(self):
-        if self.close.isPress : 
+        if self.close.action : 
             self.exit_state()
-            self.close.isPress = False
-        if self.button_1.isPress : 
+            
+        if self.button_1.action : 
             webbrowser.open('https://github.com/trungviet17')
-            self.button_1.isPress = False
-        if self.button_2.isPress : 
+           
+        if self.button_2.action : 
             webbrowser.open('https://www.facebook.com/gnurt17')
-            self.button_2.isPress = False
+            
 
     def set_position(self) : 
         self.screen_rect = self.screen.get_rect()

@@ -46,29 +46,26 @@ class Setting_title(State) :
         
 
     def update(self):
-        if self.close.isPress : 
+        if self.close.action : 
             self.exit_state()
-            self.close.isPress = False
-        # Bug 
-        if self.setting_music.isPress : 
+            
+        if self.setting_music.action : 
             if self.setting_music.img == self.setting.setting_on : 
                 self.setting_music.set_img(self.setting.setting_off)
             elif self.setting_music.img == self.setting.setting_off : 
                 self.setting_music.set_img(self.setting.setting_on)
-            self.setting_music.isPress = False
-        # Bug
-        if self.setting_sound.isPress : 
+            
+        if self.setting_sound.action : 
             if self.setting_sound.img == self.setting.setting_on : 
                 self.setting_sound.set_img(self.setting.setting_off)
             elif self.setting_sound.img == self.setting.setting_off : 
                 self.setting_sound.set_img(self.setting.setting_on)
-            self.setting_sound.isPress = False
-        
-        if self.setting_plus.isPress  :
+            
+        if self.setting_plus.action  :
              pass
             
 
-        if self.setting_subtract.isPress : 
+        if self.setting_subtract.action : 
             pass
         
 
