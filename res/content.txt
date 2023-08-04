@@ -1,6 +1,9 @@
 Link nội dung : 
 https://www.hoahoc24h.com/chuoi-phan-ung/hoa-hoc-vo-co/
 
-level 1 : Na 
-target = Na2SO4 
-[NaOH, HCl , CO2, SO3]
+- Chức năng cần có : 
+    - Lưu tiến trình chơi 
+    - Kết nối game level lại với nhau 
+    - Hoàn thành dictionary 
+    - Hoàn thành các state 
+    - Hoàn thành đồ họa cho game play

@@ -4,6 +4,11 @@ from Background_Scrolling import Background_Scrolling
 from Level import Level
 import pygame 
 
+"""
+- State chứa menu của game 
+    - Ô lưới 9 ô với mỗi ô là 1 đối tượng level của game 
+    - chứa các button update và store
+"""
 class Level_select(State) : 
     def __init__(self, game) :
         State.__init__(self, game) 
@@ -17,12 +22,15 @@ class Level_select(State) :
         self.prew = Title_Button(0, 0, self.setting.prew_button,self.screen, self.scale)
         self.background = Background_Scrolling(game)
         self.dot = []
-        self.content = []
+        self.content = [[],[],[]]
 
 
         self.set_dot()
+        self.set_content()
 
         self.set_position()
+
+        self.level_position()
     
     def img_scale(self, img, scale) : 
         res = pygame.transform.scale(img, (int(img.get_width() * scale), int(img.get_height() * scale)))
@@ -38,8 +46,9 @@ class Level_select(State) :
     def set_content(self) : 
         for i in range (3) : 
             for j in range(3) : 
-                level = Level(self.setting, i * 3 + j + 1, self.screen)
-                self.content[self.index_dot].append(level)
+                tag = i * 3 + j + 1
+                level = Level(self.setting, str(tag), self.screen)
+                self.content[i].append(level)
 
     def render(self):
         self.background.draw()
@@ -52,6 +61,10 @@ class Level_select(State) :
 
         for i in range(len(self.dot)) : 
             self.screen.blit(self.dot[i], self.dot_rect[i])
+
+        for i in range(len(self.content)) : 
+            for j in range (len(self.content[0])) : 
+                self.content[i][j].draw()
             
     
     def update(self):
@@ -116,8 +129,35 @@ class Level_select(State) :
             self.dot_rect[r].centery = self.dot_rect[center].centery
 
     def level_position(self) : 
-        self.content_rect = []
+        self.content_rect = [[],[],[]]
+        for i in range(len(self.content)) : 
+            for j in range(len(self.content[0])) :
+                tmp = self.content[i][j].game_start.img_rect
+                self.content_rect[i].append(tmp)
+
+        center = len(self.content) // 2
+        self.content_rect[center][center].centerx = self.bg_table_rect.centerx 
+        self.content_rect[center][center].centery = self.bg_table_rect.centery
+        self.content[center][center].set_position()
+
+        dx = [1, -1, 0, 0, 1, -1, 1, -1]
+        dy = [1, 1, 1, -1, -1, -1, 0, 0]
+
+        self.content[0][0].isOpen = True
+
+        for i in range(8) : 
+            self.content_rect[center + dx[i]][center + dy[i]].centerx = self.content_rect[center][center].centerx + 120 * dx[i]
+            self.content_rect[center + dx[i]][center + dy[i]].centery = self.content_rect[center][center].centery + 120 * dy[i]
+            self.content[center + dx[i]][center + dy[i]].set_position()
+
         
+
+
+        
+
+
+
+
 
 
 

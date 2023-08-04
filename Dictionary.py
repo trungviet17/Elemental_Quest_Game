@@ -4,6 +4,14 @@ from Setting import Setting
 from Element import Element
 from State import State
 
+
+"""
+- State dictionary 
+    - Danh sách các chất được phân chia theo từng loại khác nhau
+    - Thông tin các chất đó 
+
+"""
+
 class Dictionary(State) : 
     def __init__(self, game) :
         State.__init__(self,game) 

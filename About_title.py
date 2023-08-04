@@ -4,6 +4,11 @@ from Background_Scrolling import Background_Scrolling
 from Button import Title_Button
 import webbrowser
 
+"""
+- State about 
+    - chứa thông tin tác giả facebook và github
+"""
+
 class About_title(State) : 
     def __init__(self, game):
         State.__init__(self,game)

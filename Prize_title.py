@@ -2,6 +2,15 @@ import pygame
 from State import State
 from Button import Title_Button
 from Background_Scrolling import Background_Scrolling
+
+
+"""
+- State prize : 
+    - Lưu thông tin điểm cao nhất của người chơi 
+
+
+"""
+
 class Prize_title(State) :
     def __init__(self, game) : 
         State.__init__(self, game) 

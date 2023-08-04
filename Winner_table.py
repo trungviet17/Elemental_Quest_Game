@@ -1,5 +1,13 @@
 import pygame.font
 
+
+"""
+- State thông báo winner 
+    - thông báo sao 
+    - Hiện điểm 
+    - Hiện Điểm cao nhẩt 
+    - Nút chơi lại, tiếp tục hoặc thoát game
+"""
 class Winner_table : 
     def __init__(self, c_game) : 
         self.setting = c_game.setting 

@@ -20,7 +20,7 @@ class Setting_title(State) :
 
         self.back_ground = Background_Scrolling(game)
 
-        self.font = pygame.font.SysFont(None, 48)
+        self.font = pygame.font.Font('res\\font\\SpeedRushItalic-GOYoa.ttf', 48)
         self.music_text = self.font.render("MUSIC", True, (51, 0, 0))
         self.sound_text = self.font.render("SOUND", True, (51, 0, 0))
         self.fill = 0

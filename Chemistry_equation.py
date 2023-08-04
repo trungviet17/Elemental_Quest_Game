@@ -7,6 +7,14 @@ from aboard import Aboard
 from Winner_table import Winner_table
 from State import State
 
+"""
+- State game play 
+    - Đầu vào là dữ liệu từ level 
+    - Tính toán điểm, sao cho game 
+    - Bổ trợ thêm phép bổ trợ cho game 
+    - Pause game 
+    - Bộ đếm thời gian
+"""
 
 class Chemistry_game(State) : 
 
