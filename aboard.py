@@ -1,5 +1,10 @@
 import pygame
 
+"""
+- Thanh tính điểm, thời gian , level
+"""
+
+
 class Aboard : 
     def __init__ (self, c_game) : 
         self.screen = c_game.screen 

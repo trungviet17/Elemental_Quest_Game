@@ -6,6 +6,7 @@ from Game_Logic import Game_Logic
 from aboard import Aboard
 from Winner_table import Winner_table
 from State import State
+from Level import Level
 
 """
 - State game play 
@@ -18,22 +19,17 @@ from State import State
 
 class Chemistry_game(State) : 
 
-    def __init__(self, game) :
+    def __init__(self, game, level) :
         State.__init__(self, game)
-        #pygame.init()
-        
-        # setting attribute of game 
-        #self.setting = Setting()
-        # self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
-        # pygame.display.set_caption("Chemistry Demo Game")
+
         self.back_ground = self.setting.back_ground_4
 
-        # dash board 
         self.dash_board = self.screen.subsurface(pygame.Rect(self.setting.change_dtosc_x, self.setting.change_dtosc_y, self.setting.dash_width, self.setting.dash_height))
 
-
+        # game data 
+        self.level = level
         # element of game on 
-        self.element_for_equa = pygame.sprite.Group()
+        self.element_for_equa = []
 
         # start button 
         self.start = Start_button(self)
@@ -42,18 +38,19 @@ class Chemistry_game(State) :
         self.game_logic = Game_Logic()
         
         # target element 
-        self.target = self.setting.target[0]
+        self.target = self.level.level_target
+
+        # aboard
         self.aboard = Aboard(self)
 
         # running 
         self.running = True
 
-        # winner notice 
-        self.winner_table = self.screen.subsurface(pygame.Rect(self.setting.winner_toscr_x, self.setting.winner_toscr_y, self.setting.winner_width, self.setting.winner_height))
-        self.winner = Winner_table(self)
+         
+        
 
         # element of game on dashboard
-        self.elements = pygame.sprite.Group()
+        self.elements = []
         self.default_element()
         
     def render(self) : 
@@ -85,16 +82,14 @@ class Chemistry_game(State) :
                     self.check_element_onclick(mouse_pos)
                     self.check_equation_table_onclick(mouse_pos)
                     self.check_combine_element(mouse_pos)
-                # else : 
-                #     self.check_winning_next_button(mouse_pos)
-                #     self.check_winning_quit_button(mouse_pos)
+                
                 
 
 
     # click to element
     def check_element_onclick(self, mouse_pos) : 
         mouse_x, mouse_y = mouse_pos
-        for i in self.elements.sprites() : 
+        for i in self.elements : 
             e_x, e_y = i.center_point
             if ((e_x + self.setting.change_dtosc_x - mouse_x)**2 + (e_y + self.setting.change_dtosc_y - mouse_y)**2 <= self.setting.element_rad **2) : 
                 #i.onclick = True
@@ -104,7 +99,6 @@ class Chemistry_game(State) :
     # update screen 
     def update_screen(self) : 
         # init background
-        #self.screen.fill(self.setting.bg_color)
         self.screen.blit(self.back_ground, (0,0))
 
         self.update_equation_table()
@@ -172,32 +166,17 @@ class Chemistry_game(State) :
                 self.element_for_equa.empty()
 
 
-    # def winning_notice(self) : 
-    #     self.winner_table.fill(self.setting.winner_color)
-    #     self.winner.showing()
-
-
-    # def check_winning_next_button(self, mouse_pos) : 
-    #     mouse_pos = self.change_mouse_pos(mouse_pos)
-    #     if self.winner.next_button_rect.collidepoint(mouse_pos) : 
-    #         self.running = True
-            
-    #         # reset game 
-    #         self.target = self.setting.target[self.aboard.level]
-    #         self.aboard.level += 1
-    #         self.aboard.score = 0
-    #         self.elements.empty()
-
-    #         self.default_element()
-
-    # def check_winning_quit_button(self, mouse_pos) : 
-    #     mouse_pos = self.change_mouse_pos(mouse_pos)
-    #     if self.winner.quit_button_rect.collidepoint(mouse_pos) : 
-    #         sys.exit()
+   
 
     def change_mouse_pos(self, mouse_pos) : 
         mouse_pos_x, mouse_pos_y = mouse_pos
         return (mouse_pos_x - self.setting.winner_toscr_x, mouse_pos_y - self.setting.winner_toscr_y)
+    
+
+    def load_asset(self) : 
+        pass
+
+
 
 
 # if __name__ == '__main__' : 

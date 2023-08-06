@@ -31,6 +31,10 @@ class Level :
 
 
         # game data 
+
+        # chuyển lại game level khi hoàn thành
+        self.level_element = self.setting.element_content[0]
+        self.level_target = self.setting.target[0]
         
         
 
@@ -61,7 +65,6 @@ class Level :
             self.screen.blit(self.tag, self.tag_rect)
             self.switch_star()
             self.screen.blit(self.star_anni, self.star_anni_rect)
-            
         else : 
             self.screen.blit(self.lock, self.lock_rect)
 

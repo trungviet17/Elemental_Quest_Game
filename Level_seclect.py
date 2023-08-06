@@ -22,7 +22,7 @@ class Level_select(State) :
         self.prew = Title_Button(0, 0, self.setting.prew_button,self.screen, self.scale)
         self.background = Background_Scrolling(game)
         self.dot = []
-        self.content = [[],[],[]]
+        self.content = [[[],[],[]], [[],[],[]], [[],[],[]]]
 
 
         self.set_dot()
@@ -44,11 +44,13 @@ class Level_select(State) :
         self.index_dot = 0
 
     def set_content(self) : 
-        for i in range (3) : 
-            for j in range(3) : 
-                tag = i * 3 + j + 1
-                level = Level(self.setting, str(tag), self.screen)
-                self.content[i].append(level)
+        tag = 0
+        for k in range(3) :
+            for i in range (3) : 
+                for j in range(3) : 
+                    tag += 1
+                    level = Level(self.setting, str(tag), self.screen)
+                    self.content[k][i].append(level)
 
     def render(self):
         self.background.draw()
@@ -64,7 +66,7 @@ class Level_select(State) :
 
         for i in range(len(self.content)) : 
             for j in range (len(self.content[0])) : 
-                self.content[i][j].draw()
+                self.content[self.index_dot][i][j].draw()
             
     
     def update(self):
@@ -128,27 +130,32 @@ class Level_select(State) :
             self.dot_rect[r].centerx = self.dot_rect[center].centerx + (r - center) * 30
             self.dot_rect[r].centery = self.dot_rect[center].centery
 
+
+
     def level_position(self) : 
-        self.content_rect = [[],[],[]]
+        self.content_rect = [[[],[],[]], [[],[],[]], [[],[],[]]]
         for i in range(len(self.content)) : 
             for j in range(len(self.content[0])) :
-                tmp = self.content[i][j].game_start.img_rect
-                self.content_rect[i].append(tmp)
+                for k in range(len(self.content[0][0])) :
+                    tmp = self.content[i][j][k].game_start.img_rect
+                    self.content_rect[i][j].append(tmp)
 
-        center = len(self.content) // 2
-        self.content_rect[center][center].centerx = self.bg_table_rect.centerx 
-        self.content_rect[center][center].centery = self.bg_table_rect.centery
-        self.content[center][center].set_position()
+        center = len(self.content[0]) // 2
+        for i in range(3) :
+            self.content_rect[i][center][center].centerx = self.bg_table_rect.centerx 
+            self.content_rect[i][center][center].centery = self.bg_table_rect.centery
+            self.content[i][center][center].set_position()
 
         dx = [1, -1, 0, 0, 1, -1, 1, -1]
         dy = [1, 1, 1, -1, -1, -1, 0, 0]
 
-        self.content[0][0].isOpen = True
+        self.content[0][0][0].isOpen = True
 
-        for i in range(8) : 
-            self.content_rect[center + dx[i]][center + dy[i]].centerx = self.content_rect[center][center].centerx + 120 * dx[i]
-            self.content_rect[center + dx[i]][center + dy[i]].centery = self.content_rect[center][center].centery + 120 * dy[i]
-            self.content[center + dx[i]][center + dy[i]].set_position()
+        for k in range(3) : 
+            for i in range(8) : 
+                self.content_rect[k][center + dx[i]][center + dy[i]].centerx = self.content_rect[k][center][center].centerx + 120 * dy[i]
+                self.content_rect[k][center + dx[i]][center + dy[i]].centery = self.content_rect[k][center][center].centery + 120 * dx[i]
+                self.content[k][center + dx[i]][center + dy[i]].set_position()
 
         
 

@@ -5,10 +5,10 @@ import pygame.font
     - Round shape, color, with chemical name written on it
     - Subclass of Sprite . class
 """
-class Element(Sprite) : 
+class Element : 
     
     def __init__(self, c_tag, c_game) :
-        super().__init__()
+        #super().__init__()
         self.screen = c_game.screen 
         self.screen_rect = c_game.screen.get_rect()
         

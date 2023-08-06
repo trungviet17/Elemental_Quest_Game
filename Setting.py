@@ -22,6 +22,24 @@ class Setting :
         self.element_distance = 50
         self.element_text_color = (255, 255, 255)
 
+
+
+        # element gui 
+        self.element_shi_sqa = pygame.image.load('res\\element\\shiny\\2.png')
+        self.element_shi_cir = pygame.image.load('res\\element\\shiny\\3.png')
+        self.element_shi_six = pygame.image.load('res\\element\\shiny\\4.png')
+        self.element_shi_fiv = pygame.image.load('res\\element\\shiny\\6.png')
+        self.element_shi_eig = pygame.image.load('res\\element\\shiny\\12.png')
+        self.element_shi_rect = pygame.image.load('res\\element\\shiny\\17.png')
+
+        self.element_simp_sqa = pygame.image.load('res\\element\\simple\\2.png')
+        self.element_simp_cir = pygame.image.load('res\\element\\simple\\3.png')
+        self.element_simp_six = pygame.image.load('res\\element\\simple\\4.png')
+        self.element_simp_fiv = pygame.image.load('res\\element\\simple\\6.png')
+        self.element_simp_eig = pygame.image.load('res\\element\\simple\\12.png')
+        self.element_simp_rect = pygame.image.load('res\\element\\simple\\17.png')
+
+
         # equation dashboard 
         self.equation_dashboard_rad = 250
         self.equation_dashboard_color = (255, 153 , 153)
@@ -125,6 +143,9 @@ class Setting :
         # btn 
         self.next_button = pygame.image.load('res\\btn\\next.png')
         self.prew_button = pygame.image.load('res\\btn\\prew.png')
+
+
+        
 
     # Init_equation_position 
     def init_equation_dasboard(self) : 
