@@ -19,6 +19,7 @@ class Level :
         self.game_start = Title_Button(0, 0, self.setting.level_tb, self.screen, self.scale)
         self.star = 0
         self.font = pygame.font.Font('res\\font\\SuperBubble-Rpaj3.ttf', 45)
+        self.tag_name = tag
         self.tag = self.font.render(tag, True, (153, 76, 0))
         self.lock = self.img_scale(self.setting.level_lock, self.scale)
         self.isOpen = False

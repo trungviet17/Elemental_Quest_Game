@@ -3,6 +3,7 @@ from Button import Title_Button
 from Background_Scrolling import Background_Scrolling
 from Level import Level
 import pygame 
+from Chemistry_equation import Chemistry_game
 
 """
 - State chứa menu của game 
@@ -12,7 +13,7 @@ import pygame
 class Level_select(State) : 
     def __init__(self, game) :
         State.__init__(self, game) 
-        
+        self.game = game
         self.scale = 0.4 
         self.header = self.img_scale(self.setting.level_select_header, self.scale + 0.05)
         self.bg = self.img_scale(self.setting.level_select_bg, self.scale)
@@ -82,6 +83,13 @@ class Level_select(State) :
             self.dot[self.index_dot] = self.img_scale(self.setting.level_select_dot_2, self.scale)
             self.index_dot -= 1
             self.dot[self.index_dot] = self.img_scale(self.setting.level_select_dot_1, self.scale)
+
+         
+        for i in range(3) : 
+            for j in range(3) : 
+                if (self.content[self.index_dot][i][j].game_start.action) : 
+                    game =  Chemistry_game(self.game, self.content[self.index_dot][i][j])
+                    game.enter_state()
             
             
     
