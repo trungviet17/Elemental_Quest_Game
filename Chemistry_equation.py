@@ -1,7 +1,7 @@
 import pygame
 import sys
 from Element import Element
-from Button import Start_button
+from Button import Title_Button
 from Game_Logic import Game_Logic
 from aboard import Aboard
 from Winner_table import Winner_table
@@ -28,10 +28,8 @@ class Chemistry_game(State) :
         # game data 
         self.level = level
         # element of game on 
-        self.element_for_equa = []
-
-        # start button 
-        self.start = Start_button(self)
+        self.element_in_equa = []
+        self.element_in_board = []
 
         # check game logic 
         self.game_logic = Game_Logic()
@@ -46,7 +44,9 @@ class Chemistry_game(State) :
         self.running = True
 
         # element of game on dashboard
-        self.elements = []
+        self.elements = {}
+
+    
         self.default_element()
         
     def render(self) : 
@@ -56,10 +56,6 @@ class Chemistry_game(State) :
         #setting screen  
         self.update_screen()
 
-    
-        # if (self.running) : 
-        #     #element update
-        #     self.elements_update()
         
 
 
@@ -76,29 +72,25 @@ class Chemistry_game(State) :
         self.screen.blit(self.back_ground, (0,0))
 
         self.update_equation_table()
-        # init start button
-        # if(self.running) : self.start.draw()
-
+       
         
         self.aboard.draw()
         
        
     # print element to dashboard 
     def elements_update(self) : 
-        max_element = self.setting.dash_width / self.setting.element_distance 
-        pos_y = self.setting.dash_height // 2
-        pos_x = 50
-        if (len(self.elements) < max_element) : 
-            for i in self.elements.sprites() : 
-                i.draw(pos_x, pos_y, self.dash_board)
-                pos_x += 100
+        pass
                 
     # default_element          
     def default_element(self) : 
-        # for i in self.setting.element_content[self.aboard.level - 1] : 
-        #     e = Element(i, self)
-        #     self.elements.add(e)
-        pass
+        for i in self.setting.element_content[int(self.aboard.game_level) - 1] : 
+            if i in self.elements : 
+                self.elements[i] += 1
+            else : 
+                e = Element(i, self)
+                self.elements[i] = 1
+                self.element_in_board.append(e)
+        
 
 
     # add element to equation table 

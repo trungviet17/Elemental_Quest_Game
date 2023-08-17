@@ -45,12 +45,24 @@ class Start_button :
         self.font = pygame.font.SysFont(None, 48)
         self.text = self.font.render("Start", True, self.setting.start_button_text_color)
         self.onclick = False
-        self.text_rect = self.text.get_rect(center = self.setting.start_button_center)
+        self.text_rect = self.text.get_rect()
 
+        self.scale = 0.5
+        self.bg = pygame.transform.scale(self.setting.element_simp_rect, (int(self.setting.element_simp_rect.get_width() * self.scale), int(self.setting.element_simp_rect.get_height() * self.scale)))
+
+        self.set_position()
     def draw(self) : 
-        pygame.draw.circle(self.screen, self.setting.start_button_color, self.setting.start_button_center, self.setting.start_button_rad)
+        
+
+        self.screen.blit(self.bg, self.bg_rect)
         self.screen.blit(self.text, self.text_rect)
 
+    def set_position(self) : 
+        screen_rect = self.screen.get_rect()
+        self.bg_rect = self.bg.get_rect()
+        self.bg_rect.center = screen_rect.center
+
+        self.text_rect.center = self.bg_rect.center
 
 
 

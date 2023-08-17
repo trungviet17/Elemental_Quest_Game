@@ -1,4 +1,4 @@
-import sys, time, pygame
+import sys, pygame
 from Setting import Setting 
 from Title import Title
 class Game : 
@@ -29,7 +29,7 @@ class Game :
     def check_event(self) : 
         for event in pygame.event.get() : 
             if event.type == pygame.QUIT : 
-                self.running = False
+                self.running = False    
                 sys.exit()
            
 

@@ -37,7 +37,7 @@ class Setting :
         self.element_shi_eig = pygame.image.load('res\\element\\shiny\\12.png')
         self.element_shi.append(self.element_shi_eig)
         self.element_shi_rect = pygame.image.load('res\\element\\shiny\\17.png')
-        self.element_shi.append(self.element_shi_rect)
+        
 
         self.element_simp = []
         self.element_simp_sqa = pygame.image.load('res\\element\\simple\\2.png')
@@ -51,7 +51,7 @@ class Setting :
         self.element_simp_eig = pygame.image.load('res\\element\\simple\\12.png')
         self.element_simp.append(self.element_simp_eig)
         self.element_simp_rect = pygame.image.load('res\\element\\simple\\17.png')
-        self.element_simp.append(self.element_simp_rect)
+        
 
 
         # equation dashboard 
@@ -176,13 +176,26 @@ class Setting :
         self.match_down_board = pygame.image.load('res\\match\\down.png')
         self.match_up_board = pygame.image.load('res\\match\\up.png')
         self.match_loading = pygame.image.load('res\\match\\load.png')
-        self.match_move_tbl = pygame.image.load('res\\match\\moves.png')
+        # self.match_move_tbl = pygame.image.load('res\\match\\moves.png')
         self.match_pause_but = pygame.image.load('res\\match\\pause.png')
         self.match_star_1 = pygame.image.load('res\\match\\star_1.png')
         self.match_star_2 = pygame.image.load('res\\match\\star_2.png')
         self.match_star_3 = pygame.image.load('res\\match\\star_3.png')
-        self.match_level_tb = pygame.image.load('res\\match\\table_2.png')
-        self.match_score_tb = pygame.image.load('res\\match\\table_1.png')
+        # self.match_level_tb = pygame.image.load('res\\match\\table_2.png')
+        # self.match_score_tb = pygame.image.load('res\\match\\table_1.png')
+        self.match_level = pygame.image.load('res\\match\\level.png')
+        self.match_clock = pygame.image.load('res\\match\\clock.png')
+        self.match_table = pygame.image.load('res\\match\\table.png')
+        self.match_help_bg = pygame.image.load('res\\match\\btn_1.png')
+        self.match_clock = pygame.image.load('res\\match\\clock.png')
+        self.match_score_icon = pygame.image.load('res\\match\\star.png')
+        self.match_move_icon = pygame.image.load('res\\match\\ico1.png')
+        self.match_level_board = pygame.image.load('res\\match\\btn.png')
+        self.number()
+
+        # buutton 
+        self.btn_up = pygame.image.load('res\\btn\\up.png')
+        self.btn_down = pygame.image.load('res\\btn\\down.png')
 
 
         
@@ -194,4 +207,11 @@ class Setting :
         for i in range(len(arr)) : 
             self.equation_position.append([self.start_button_center[0] + arr[i][0], self.start_button_center[1] + arr[i][1]])
 
+    def number(self) : 
+        self.number_img = []
+        path = 'res\\match\\'
+        for i in range(0, 10) : 
+            tmp = path + str(i) + '.png'
+            img = pygame.image.load(tmp)
+            self.number_img.append(img)
         
