@@ -23,7 +23,7 @@ class Element :
         self.img_shine = self.trans_img(self.setting.element_shi[self.bgr_int])
         
         # setting information
-        self.font = pygame.font.SysFont(None, 30)
+        self.font = pygame.font.Font('res\\font\\SuperBubble-Rpaj3.ttf', 20)
         self.text = self.font.render(c_tag, True, self.setting.element_text_color)
         # self.num = 1
         self.sub_font = pygame.font.Font('res\\font\\SpeedRushItalic-GOYoa.ttf', 10)

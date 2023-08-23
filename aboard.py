@@ -65,6 +65,9 @@ class Aboard :
         self.element_up_but = Title_Button(0, 0, self.setting.btn_up, self.screen, self.scale - 0.15)
         self.element_down_but = Title_Button(0, 0, self.setting.btn_down, self.screen, self.scale - 0.15)
 
+        
+        self.close_target_but = Title_Button(0, 0, self.setting.next_button, self.screen, self.scale - 0.15)
+        self.isOpen = False
         self.set_position()
         self.prep_move()
         self.prep_score()
@@ -168,6 +171,10 @@ class Aboard :
         self.element_up_but.img_rect.top = self.aboard_up_rect.bottom - 1
         self.element_up_but.img_rect.left = self.element_down_but.img_rect.left
 
+       
+
+        self.close_target_but.img_rect.center = self.aboard_left_rect.midright
+
 
     def prep_score(self) : 
         self.score_nt = self.font.render(str(self.score), True, (255, 255, 255))
@@ -180,9 +187,11 @@ class Aboard :
 
 
     def draw(self): 
+        
+
         self.screen.blit(self.aboard_up, self.aboard_up_rect)
         self.screen.blit(self.aboard_down, self.aboard_down_rect)
-        self.screen.blit(self.aboard_left, self.aboard_left_rect)
+        
         self.screen.blit(self.level_bg, self.level_bg_rect)
         self.screen.blit(self.loading_bar, self.loading_bar_rect)
         self.screen.blit(self.star_1, self.star_1_rect)
@@ -216,3 +225,16 @@ class Aboard :
 
         self.element_down_but.draw()
         self.element_up_but.draw()
+
+        if self.close_target_but.action and not self.isOpen : 
+            self.close_target_but.set_img(self.setting.prew_button)
+            self.isOpen = True
+        elif self.close_target_but.action and self.isOpen : 
+            self.close_target_but.set_img(self.setting.next_button)
+            self.isOpen = False
+
+        if self.isOpen : 
+            self.screen.blit(self.aboard_left, self.aboard_left_rect)
+
+        self.close_target_but.draw()
+

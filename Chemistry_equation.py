@@ -91,7 +91,7 @@ class Chemistry_game(State) :
                 
     # default_element          
     def default_element(self) : 
-        for i in self.setting.element_content[int(self.aboard.game_level) - 1] : 
+        for i in self.level.level_element : 
             if i in self.elements : 
                 self.elements[i] += 1
             else : 
