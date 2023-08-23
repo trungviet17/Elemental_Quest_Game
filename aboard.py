@@ -61,8 +61,8 @@ class Aboard :
         self.start_text = self.font.render('Start', True, (0, 255, 255))
 
 
-        self.element_up_but = Title_Button(0, 0, self.setting.btn_up, self.screen, self.scale)
-        self.element_down_but = Title_Button(0, 0, self.setting.btn_down, self.screen, self.scale)
+        self.element_up_but = Title_Button(0, 0, self.setting.btn_up, self.screen, self.scale - 0.15)
+        self.element_down_but = Title_Button(0, 0, self.setting.btn_down, self.screen, self.scale - 0.15)
 
         self.set_position()
         self.prep_move()
@@ -158,6 +158,12 @@ class Aboard :
         self.level_banner_rect.centerx = self.level_bg_rect.centerx
         self.level_banner_rect.centery = self.level_bg_rect.centery - 30
 
+        self.element_down_but.img_rect.bottom = self.aboard_down_rect.top + 1
+        self.element_down_but.img_rect.left = self.aboard_down_rect.right + 70
+
+        self.element_up_but.img_rect.top = self.aboard_up_rect.bottom - 1
+        self.element_up_but.img_rect.left = self.element_down_but.img_rect.left
+
 
     def prep_score(self) : 
         self.score_nt = self.font.render(str(self.score), True, (255, 255, 255))
@@ -202,3 +208,6 @@ class Aboard :
         self.screen.blit(self.luck, self.luck_rect)
         self.screen.blit(self.score_icon, self.score_icon_rect)
         self.screen.blit(self.move_icon, self.move_icon_rect)
+
+        self.element_down_but.draw()
+        self.element_up_but.draw()

@@ -30,7 +30,6 @@ class Chemistry_game(State) :
         # element of game on 
         self.element_in_equa = []
         self.element_in_board = []
-
         # check game logic 
         self.game_logic = Game_Logic()
         
@@ -45,6 +44,9 @@ class Chemistry_game(State) :
 
         # element of game on dashboard
         self.elements = {}
+
+        self.element_board_long = self.aboard.element_up_but.img_rect.centery - self.aboard.element_down_but.img_rect.centery
+        self.element_board_indx = 0
 
     
         self.default_element()
@@ -72,14 +74,19 @@ class Chemistry_game(State) :
         self.screen.blit(self.back_ground, (0,0))
 
         self.update_equation_table()
+        self.element_draw(self.element_board_indx)
        
         
         self.aboard.draw()
         
        
     # print element to dashboard 
-    def elements_update(self) : 
-        pass
+    def element_draw(self, indx) : 
+        end =   min(len(self.element_in_board), indx + 4) 
+        for i in range(indx, end ) : 
+            self.element_in_board[i].img_to_scr_rect.centerx = self.aboard.element_down_but.img_rect.centerx
+            self.element_in_board[i].img_to_scr_rect.centery = self.aboard.element_up_but.img_rect.centery - (i + 1 - indx) * self.element_board_long // 5
+            self.element_in_board[i].draw()
                 
     # default_element          
     def default_element(self) : 
@@ -93,13 +100,19 @@ class Chemistry_game(State) :
         
 
 
-    # add element to equation table 
+    # all update of element
     def update_equation_table(self) : 
         # for i in range( len(self.element_for_equa.sprites()) ) : 
         #     new_position = (self.setting.equation_position[i][0], self.setting.equation_position[i][1])
         #     pygame.draw.line(self.screen, self.setting.start_button_color, self.setting.start_button_center, new_position, 6)
         #     self.element_for_equa.sprites()[i].draw(self.setting.equation_position[i][0], self.setting.equation_position[i][1], self.screen)
-        pass
+        if (self.aboard.element_up_but.action and self.element_board_indx - 1 >= 0) : 
+            self.element_board_indx -= 1
+
+        if (self.aboard.element_down_but.action and self.element_board_indx + 4 < len(self.element_in_board)) : 
+            self.element_board_indx += 1
+
+        self.element_draw(self.element_board_indx)
 
     # remove element from equation table 
     def check_equation_table_onclick(self, mouse_pos) : 
@@ -109,22 +122,6 @@ class Chemistry_game(State) :
     # TODO : FIX IT 
     # check the new element after click start  
     def check_combine_element(self, mouse_pos) : 
-        # mouse_x, mouse_y = mouse_pos
-        # pos_x, pos_y = self.setting.start_button_center
-        # if (((pos_x - mouse_x)**2 + (pos_y - mouse_y)**2 <= self.setting.start_button_rad **2) ) :
-        #     if (self.game_logic.check_for_new_element(self)) : 
-        #         self.element_for_equa.empty()
-        #         self.aboard.score += len(self.game_logic.name_after_combine) * 100
-        #         for i in self.game_logic.name_after_combine : 
-        #             e = Element(i, self)
-        #             self.elements.add(e)
-        #             if (i == self.target) : self.running = False
-        #         # clear all game_logic
-        #         self.game_logic.name_after_combine.clear()
-        #     else : 
-        #         for i in self.element_for_equa.sprites() : 
-        #             self.elements.add(i)
-        #         self.element_for_equa.empty()
         pass
 
 
