@@ -19,7 +19,7 @@ class Title(State) :
         self.leader_button = Title_Button(0, 0, self.setting.leader_button, self.screen, 0.3)
         self.surface_rect = self.screen.get_rect()
         self.title = self.setting.title
-        self.background = Background_Scrolling(game)
+        self.background = Background_Scrolling(game,7)
 
         self.set_position()
         

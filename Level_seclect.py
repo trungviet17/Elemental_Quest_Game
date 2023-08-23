@@ -21,7 +21,7 @@ class Level_select(State) :
         self.close = Title_Button(0, 0, self.setting.close_2, self.screen, self.scale)
         self.next = Title_Button(0, 0, self.setting.next_button, self.screen, self.scale)
         self.prew = Title_Button(0, 0, self.setting.prew_button,self.screen, self.scale)
-        self.background = Background_Scrolling(game)
+        self.background = Background_Scrolling(game,0)
         self.dot = []
         self.content = [[[],[],[]], [[],[],[]], [[],[],[]]]
 

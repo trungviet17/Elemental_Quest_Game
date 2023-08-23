@@ -18,7 +18,7 @@ class Setting_title(State) :
         self.setting_plus = Title_Button(0, 0, self.setting.setting_plus, self.screen, self.scale)
         self.setting_subtract = Title_Button(0, 0, self.setting.setting_subtract, self.screen, self.scale)
 
-        self.back_ground = Background_Scrolling(game)
+        self.back_ground = Background_Scrolling(game,0)
 
         self.font = pygame.font.Font('res\\font\\SpeedRushItalic-GOYoa.ttf', 48)
         self.music_text = self.font.render("MUSIC", True, (51, 0, 0))

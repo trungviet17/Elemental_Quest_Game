@@ -17,6 +17,7 @@ class Aboard :
         # aboard setting
         self.aboard_up = self.set_scale(self.setting.match_up_board, self.scale)
         self.aboard_down = self.set_scale(self.setting.match_down_board, self.scale)
+        self.aboard_left = self.set_scale(self.setting.match_targetbar, self.scale)
 
         self.loading_bar = self.set_scale(self.setting.match_loading_bar, self.scale)
         self.loading = self.set_scale(self.setting.match_loading,self.scale)
@@ -79,6 +80,9 @@ class Aboard :
 
         self.aboard_down_rect = self.aboard_down.get_rect()
         self.aboard_down_rect.midbottom = self.screen_rect.midbottom
+
+        self.aboard_left_rect = self.aboard_left.get_rect()
+        self.aboard_left_rect.midleft = self.screen_rect.midleft
 
         self.loading_bar_rect = self.loading_bar.get_rect()
         self.loading_bar_rect.centerx = self.aboard_up_rect.centerx
@@ -178,6 +182,7 @@ class Aboard :
     def draw(self): 
         self.screen.blit(self.aboard_up, self.aboard_up_rect)
         self.screen.blit(self.aboard_down, self.aboard_down_rect)
+        self.screen.blit(self.aboard_left, self.aboard_left_rect)
         self.screen.blit(self.level_bg, self.level_bg_rect)
         self.screen.blit(self.loading_bar, self.loading_bar_rect)
         self.screen.blit(self.star_1, self.star_1_rect)

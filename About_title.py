@@ -16,7 +16,7 @@ class About_title(State) :
         self.table = pygame.transform.scale(self.setting.table, (int(self.setting.table.get_width() * self.scale), int(self.setting.table.get_height() * self.scale)))
         self.close = Title_Button(0, 0, self.setting.close_2, self.screen, self.scale)
         self.bg = pygame.transform.scale(self.setting.bg, (int(self.setting.bg.get_width() * self.scale), int(self.setting.bg.get_height() * self.scale)))
-        self.back_ground = Background_Scrolling(game)
+        self.back_ground = Background_Scrolling(game, 0)
         self.font_header = pygame.font.Font('res\\font\\PressStart2P-vaV7.ttf', 60)
         self.header = self.font_header.render("About", True, (128, 128, 128))
         self.font = pygame.font.SysFont(None, 50)

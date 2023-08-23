@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 class Setting : 
     def __init__(self) : 
         #screen setting 
@@ -59,7 +59,7 @@ class Setting :
         self.equation_dashboard_color = (255, 153 , 153)
 
         # level of game 
-        self.target = ["Na2SO4", "HNO3", "SO2"]
+        self.target = [["Na2SO4"], ["HNO3"], ["SO2"]]
 
         # start button 
         self.start_button_rad = 50 
@@ -105,19 +105,19 @@ class Setting :
 
 
         # background_loading 
-        self.back_ground = []
-        back_ground_1 = pygame.image.load('res\\backgound\\background_1.png')
-        self.back_ground.append(back_ground_1)
-        back_ground_2 = pygame.image.load('res\\backgound\\background_2.png')
-        self.back_ground.append(back_ground_2)
-        back_ground_3 = pygame.image.load('res\\backgound\\background_3.png')
-        self.back_ground.append(back_ground_3)
-        back_ground_4 = pygame.image.load('res\\backgound\\background_4.png')
-        self.back_ground.append(back_ground_4)
-        back_ground_5 = pygame.image.load('res\\backgound\\background_5.png')
-        self.back_ground.append(back_ground_5)
-        back_ground_6 = pygame.image.load('res\\backgound\\background_6.png')
-        self.back_ground.append(back_ground_6)
+        # self.back_ground = []
+        # back_ground_1 = pygame.image.load('res\\backgound\\background_1.png')
+        # self.back_ground.append(back_ground_1)
+        # back_ground_2 = pygame.image.load('res\\backgound\\background_2.png')
+        # self.back_ground.append(back_ground_2)
+        # back_ground_3 = pygame.image.load('res\\backgound\\background_3.png')
+        # self.back_ground.append(back_ground_3)
+        # back_ground_4 = pygame.image.load('res\\backgound\\background_4.png')
+        # self.back_ground.append(back_ground_4)
+        # back_ground_5 = pygame.image.load('res\\backgound\\background_5.png')
+        # self.back_ground.append(back_ground_5)
+        # back_ground_6 = pygame.image.load('res\\backgound\\background_6.png')
+        # self.back_ground.append(back_ground_6)
 
 
         # title state loading 
@@ -191,12 +191,17 @@ class Setting :
         self.match_score_icon = pygame.image.load('res\\match\\star.png')
         self.match_move_icon = pygame.image.load('res\\match\\ico1.png')
         self.match_level_board = pygame.image.load('res\\match\\btn.png')
+        self.match_targetbar = pygame.image.load('res\\match\\target_bar.png')
         self.number()
 
-        # buutton 
+        # button 
         self.btn_up = pygame.image.load('res\\btn\\up.png')
         self.btn_down = pygame.image.load('res\\btn\\down.png')
 
+        self.bg_lst = []
+        for i in range(8) : 
+            tmp = self.load_bg_assets(i)
+            self.bg_lst.append(tmp)
 
         
 
@@ -215,3 +220,12 @@ class Setting :
             img = pygame.image.load(tmp)
             self.number_img.append(img)
         
+    def load_bg_assets(self, num) : 
+        path = 'res\\backgound\\Natural_' + str(num)
+
+        lst = []
+        for item in os.listdir(path) : 
+            item_path = os.path.join(path, item)
+            tmp = pygame.image.load(item_path)
+            lst.append(tmp)
+        return lst

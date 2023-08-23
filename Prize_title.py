@@ -22,7 +22,7 @@ class Prize_title(State) :
         self.prize_header = pygame.transform.scale(self.setting.prize_header, (int(self.setting.prize_header.get_width() * self.scale), int(self.setting.prize_header.get_height() * self.scale)))
         self.prize_scroll = pygame.transform.scale(self.setting.prize_scroll, (int(self.setting.prize_scroll.get_width() * self.scale), int(self.setting.prize_scroll.get_height() * (self.scale - 0.1))) )
         self.prize_content = []
-        self.back_ground = Background_Scrolling(game)
+        self.back_ground = Background_Scrolling(game,0)
         self.prize_dot = Title_Button(0, 0, self.setting.prize_dot, self.screen, self.scale)
 
         self.set_position()

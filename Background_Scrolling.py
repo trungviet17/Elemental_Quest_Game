@@ -2,26 +2,15 @@ import pygame
 
 
 class Background_Scrolling : 
-    def __init__(self, game) : 
+    def __init__(self, game, num) : 
         self.screen = game.screen 
-        self.back_ground_lst = []
-        self.back_ground_sc1 = pygame.image.load('res\\backgound\\Scrolling\\sky.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc1)
-        self.back_ground_sc2 = pygame.image.load('res\\backgound\\Scrolling\\rocks_1.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc2)
-        self.back_ground_sc3 = pygame.image.load('res\\backgound\\Scrolling\\rocks_2.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc3)
-        self.back_ground_sc4 = pygame.image.load('res\\backgound\\Scrolling\\clouds_1.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc4)
-        self.back_ground_sc5 = pygame.image.load('res\\backgound\\Scrolling\\clouds_2.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc5)
-        self.back_ground_sc6 = pygame.image.load('res\\backgound\\Scrolling\\clouds_3.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc6)
-        self.back_ground_sc7 = pygame.image.load('res\\backgound\\Scrolling\\clouds_4.png').convert_alpha()
-        self.back_ground_lst.append(self.back_ground_sc7)
+        self.setting = game.setting
+        self.back_ground_lst = self.setting.bg_lst[num]
+        for i in range(len(self.back_ground_lst)) : 
+            self.back_ground_lst[i] = self.back_ground_lst[i].convert_alpha()
 
         self.clock = pygame.time.Clock()
-        self.bg_width = self.back_ground_sc1.get_width()
+        self.bg_width = self.back_ground_lst[0].get_width()
         self.scroll = 0 
 
     def draw(self) : 

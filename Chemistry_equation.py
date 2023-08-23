@@ -7,6 +7,7 @@ from aboard import Aboard
 from Winner_table import Winner_table
 from State import State
 from Level import Level
+from Background_Scrolling import Background_Scrolling
 import random
 
 """
@@ -23,8 +24,8 @@ class Chemistry_game(State) :
     def __init__(self, game, level) :
         State.__init__(self, game)
         self.game = game
-        bgr_img = random.randint(0, len(self.setting.back_ground) - 1)
-        self.back_ground = self.setting.back_ground[bgr_img]
+        bgr_img = random.randint(0, len(self.setting.bg_lst) - 1)
+        self.back_ground = Background_Scrolling(self, bgr_img)
         # game data 
         self.level = level
         # element of game on 
@@ -71,7 +72,7 @@ class Chemistry_game(State) :
     # update screen 
     def update_screen(self) : 
         # init background
-        self.screen.blit(self.back_ground, (0,0))
+        self.back_ground.draw()
 
         self.update_equation_table()
         self.element_draw(self.element_board_indx)
