@@ -24,7 +24,7 @@ class Chemistry_game(State) :
     def __init__(self, game, level) :
         State.__init__(self, game)
         self.game = game
-        bgr_img = random.randint(0, len(self.setting.bg_lst) - 1)
+        bgr_img = random.randint(1, len(self.setting.bg_lst) - 1)
         self.back_ground = Background_Scrolling(self, bgr_img)
         # game data 
         self.level = level
@@ -65,6 +65,7 @@ class Chemistry_game(State) :
     # check event from player
     def check_event(self) : 
         pass
+
                 
                 
 
@@ -138,6 +139,3 @@ class Chemistry_game(State) :
 
 
 
-# if __name__ == '__main__' : 
-#     ai = Chemistry_game()
-#     ai.game_play()

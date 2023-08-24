@@ -66,7 +66,8 @@ class Setting :
         self.start_button_center = (600, 300)
         self.start_button_color = (128, 128, 128)
         self.start_button_text_color = (255, 253, 204)
-
+        self.start_button = pygame.image.load('res\\btn\\Button - PS Circle 1.png')
+        self.start_button_click = pygame.image.load('res\\btn\\Button - PS Circle 2.png')
         self.init_equation_dasboard()
 
         # winner table 
@@ -164,11 +165,13 @@ class Setting :
         # btn 
         self.next_button = pygame.image.load('res\\btn\\next.png')
         self.prew_button = pygame.image.load('res\\btn\\prew.png')
+        
 
         # help btn 
         self.help_heart = pygame.image.load('res\\help button\\heart.png')
         self.help_luck = pygame.image.load('res\\help button\\luck.png')
         self.help_time = pygame.image.load('res\\help button\\time.png')
+        
 
 
         # match 
@@ -176,20 +179,17 @@ class Setting :
         self.match_down_board = pygame.image.load('res\\match\\down.png')
         self.match_up_board = pygame.image.load('res\\match\\up.png')
         self.match_loading = pygame.image.load('res\\match\\load.png')
-        # self.match_move_tbl = pygame.image.load('res\\match\\moves.png')
         self.match_pause_but = pygame.image.load('res\\match\\pause.png')
         self.match_star_1 = pygame.image.load('res\\match\\star_1.png')
         self.match_star_2 = pygame.image.load('res\\match\\star_2.png')
         self.match_star_3 = pygame.image.load('res\\match\\star_3.png')
-        # self.match_level_tb = pygame.image.load('res\\match\\table_2.png')
-        # self.match_score_tb = pygame.image.load('res\\match\\table_1.png')
         self.match_level = pygame.image.load('res\\match\\level.png')
         self.match_clock = pygame.image.load('res\\match\\clock.png')
         self.match_table = pygame.image.load('res\\match\\table.png')
-        self.match_help_bg = pygame.image.load('res\\match\\btn_1.png')
+        self.match_help_bg = pygame.image.load('res\\help button\\Icon_SquareStraight.png')
         self.match_clock = pygame.image.load('res\\match\\clock.png')
         self.match_score_icon = pygame.image.load('res\\match\\star.png')
-        self.match_move_icon = pygame.image.load('res\\match\\ico1.png')
+        self.match_move_icon = pygame.image.load('res\\match\\Icon_Lightning.png')
         self.match_level_board = pygame.image.load('res\\match\\btn.png')
         self.match_targetbar = pygame.image.load('res\\match\\target_bar.png')
         self.number()

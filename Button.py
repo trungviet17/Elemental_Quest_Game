@@ -36,33 +36,28 @@ class Title_Button :
             
 
 
-class Start_button : 
+class Start_button(Title_Button) : 
 
-    def __init__(self, c_game) : 
-        self.screen = c_game.screen 
-        self.setting = c_game.setting
+    def __init__(self,x, y, img, surface, scale, img2) :
+        Title_Button.__init__(self, x, y, img, surface, scale)
+        self.trans_img = img2
+        self.ori_img = img
 
-        self.font = pygame.font.SysFont(None, 48)
-        self.text = self.font.render("Start", True, self.setting.start_button_text_color)
-        self.onclick = False
-        self.text_rect = self.text.get_rect()
+    def draw(self):
+        pos = pygame.mouse.get_pos()
+        self.action = False
 
-        self.scale = 0.5
-        self.bg = pygame.transform.scale(self.setting.element_simp_rect, (int(self.setting.element_simp_rect.get_width() * self.scale), int(self.setting.element_simp_rect.get_height() * self.scale)))
-
-        self.set_position()
-    def draw(self) : 
+        if self.img_rect.collidepoint(pos) : 
+            if pygame.mouse.get_pressed()[0] == 1 and self.isPress == False : 
+                self.action = True
+                self.isPress = True
+                self.set_img(self.trans_img)
+            if pygame.mouse.get_pressed()[0] == 0 : 
+                self.isPress = False
+                self.set_img(self.ori_img)
+        self.screen.blit(self.img_to_screen, self.img_rect)
         
-
-        self.screen.blit(self.bg, self.bg_rect)
-        self.screen.blit(self.text, self.text_rect)
-
-    def set_position(self) : 
-        screen_rect = self.screen.get_rect()
-        self.bg_rect = self.bg.get_rect()
-        self.bg_rect.center = screen_rect.center
-
-        self.text_rect.center = self.bg_rect.center
+    
 
 
 

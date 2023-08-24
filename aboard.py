@@ -1,5 +1,5 @@
 import pygame
-from Button import Title_Button
+from Button import *
 """
 - Thanh tính điểm, thời gian , level
 """
@@ -10,14 +10,16 @@ class Aboard :
         self.screen = c_game.screen 
         self.setting = c_game.setting
         self.game_level = c_game.level.tag_name
+        self.game_target = []
         self.screen_rect = self.screen.get_rect()
 
+       
 
         self.scale = 0.5
         # aboard setting
         self.aboard_up = self.set_scale(self.setting.match_up_board, self.scale)
         self.aboard_down = self.set_scale(self.setting.match_down_board, self.scale)
-        self.aboard_left = self.set_scale(self.setting.match_targetbar, self.scale)
+        self.aboard_left = self.set_scale(self.setting.match_targetbar, self.scale + 0.2)
 
         self.loading_bar = self.set_scale(self.setting.match_loading_bar, self.scale)
         self.loading = self.set_scale(self.setting.match_loading,self.scale)
@@ -32,7 +34,7 @@ class Aboard :
         self.score_tb = self.set_scale(self.setting.match_table, self.scale)
         self.move_tb = self.set_scale(self.setting.match_table, self.scale)
 
-        self.start = Title_Button(0, 0, self.setting.element_shi_rect, self.screen, self.scale)
+        self.start = Start_button(0, 0, self.setting.start_button, self.screen, self.scale - 0.2 , self.setting.start_button_click)
         
         self.score = 0
         self.num_move = 0
@@ -48,18 +50,18 @@ class Aboard :
         self.score_nt = self.font.render(str(self.score), True, (255, 255, 255))
         self.move = self.font.render(str(self.num_move), True, (255, 255, 255))
 
-        self.heart_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale )
-        self.luck_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale )
-        self.time_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale )
+        self.heart_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale - 0.1 )
+        self.luck_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale - 0.1 )
+        self.time_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale  - 0.1)
 
-        self.heart = self.set_scale(self.setting.help_heart, self.scale - 0.25)
-        self.time = self.set_scale(self.setting.help_time, self.scale - 0.25)
-        self.luck = self.set_scale(self.setting.help_luck, self.scale - 0.25)
+        self.heart = self.set_scale(self.setting.help_heart, self.scale - 0.3)
+        self.time = self.set_scale(self.setting.help_time, self.scale - 0.3)
+        self.luck = self.set_scale(self.setting.help_luck, self.scale - 0.3)
         self.clock = self.set_scale(self.setting.match_clock, self.scale)
         self.score_icon = self.set_scale(self.setting.match_score_icon, self.scale - 0.1)
-        self.move_icon = self.set_scale(self.setting.match_move_icon, self.scale - 0.2)
+        self.move_icon = self.set_scale(self.setting.match_move_icon, self.scale - 0.3)
 
-        self.start_text = self.font.render('Start', True, (0, 255, 255))
+        
 
 
         self.element_up_but = Title_Button(0, 0, self.setting.btn_up, self.screen, self.scale - 0.15)
@@ -68,6 +70,11 @@ class Aboard :
         
         self.close_target_but = Title_Button(0, 0, self.setting.next_button, self.screen, self.scale - 0.15)
         self.isOpen = False
+
+        for i in c_game.target : 
+            tmp = Target(i, self.setting, self.scale)
+            self.game_target.append(tmp)
+
         self.set_position()
         self.prep_move()
         self.prep_score()
@@ -144,8 +151,7 @@ class Aboard :
 
         self.start.img_rect.center = self.screen_rect.center
 
-        self.start_text_rect = self.start_text.get_rect()
-        self.start_text_rect.center = self.start.img_rect.center
+        
 
         self.move_tb_rect = self.move_tb.get_rect()
         self.move_tb_rect.right = self.pause_button.img_rect.left - 20
@@ -174,6 +180,17 @@ class Aboard :
        
 
         self.close_target_but.img_rect.center = self.aboard_left_rect.midright
+
+        
+        for i in range(len(self.game_target)) : 
+            self.game_target[i].bg_img_rect.centerx = self.aboard_left_rect.centerx - 10
+            if (i < 3) : 
+                self.game_target[i].bg_img_rect.centery = (i + 1) * 100
+            else : 
+                self.game_target[i].bg_img_rect.centery = (i + 2) * 100
+            self.game_target[i].set_position()
+
+            
 
 
     def prep_score(self) : 
@@ -210,7 +227,6 @@ class Aboard :
         
 
         self.start.draw()
-        self.screen.blit(self.start_text, self.start_text_rect)
         self.pause_button.draw()
         self.heart_button.draw()
         self.time_button.draw()
@@ -226,6 +242,7 @@ class Aboard :
         self.element_down_but.draw()
         self.element_up_but.draw()
 
+
         if self.close_target_but.action and not self.isOpen : 
             self.close_target_but.set_img(self.setting.prew_button)
             self.isOpen = True
@@ -235,6 +252,30 @@ class Aboard :
 
         if self.isOpen : 
             self.screen.blit(self.aboard_left, self.aboard_left_rect)
+            for i in self.game_target : 
+                i.draw(self.screen)
 
         self.close_target_but.draw()
 
+class Target : 
+    def __init__(self, tag, setting, scale) : 
+        self.name = tag
+        self.scale = scale 
+        self.bg_img = pygame.transform.scale(setting.match_table, (int(setting.match_table.get_width() * self.scale), int(setting.match_table.get_height() * self.scale)))
+
+        self.font = pygame.font.Font(None, 30)
+        self.text = self.font.render(self.name, True, (255, 255, 255))
+        self.bg_img_rect = self.bg_img.get_rect()
+        self.text_rect = self.text.get_rect()
+        self.set_position()
+
+    def set_position(self) : 
+        self.text_rect.center = self.bg_img_rect.center
+
+    def change_color(self) : 
+        self.text = self.font.render(self.name, True, (192, 192, 192))
+
+    def draw(self, surface) : 
+        surface.blit(self.bg_img, self.bg_img_rect)
+        surface.blit(self.text, self.text_rect)
+        
