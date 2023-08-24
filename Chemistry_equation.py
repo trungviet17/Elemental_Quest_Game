@@ -75,8 +75,8 @@ class Chemistry_game(State) :
         # init background
         self.back_ground.draw()
 
-        self.update_equation_table()
         self.element_draw(self.element_board_indx)
+        self.update_equation_table()
        
         
         self.aboard.draw()
@@ -106,8 +106,9 @@ class Chemistry_game(State) :
     def update_equation_table(self) : 
         # for i in range( len(self.element_for_equa.sprites()) ) : 
         #     new_position = (self.setting.equation_position[i][0], self.setting.equation_position[i][1])
-        #     pygame.draw.line(self.screen, self.setting.start_button_color, self.setting.start_button_center, new_position, 6)
+        #     pygame.draw.line(self.screen, self.setting.start_button_color, self.setting.start_button_center, new_position, 6) 
         #     self.element_for_equa.sprites()[i].draw(self.setting.equation_position[i][0], self.setting.equation_position[i][1], self.screen)
+        self.update_element(self.element_in_board, self.element_in_equa)
         if (self.aboard.element_up_but.action and self.element_board_indx - 1 >= 0) : 
             self.element_board_indx -= 1
 
@@ -116,9 +117,13 @@ class Chemistry_game(State) :
 
         self.element_draw(self.element_board_indx)
 
-    # remove element from equation table 
-    def check_equation_table_onclick(self, mouse_pos) : 
-        pass
+    def update_element(self, arr1, arr2) : 
+        if len(arr1) == 0 : return 
+        for i in arr1 :
+            if i.action : 
+                arr2.append(i) 
+                arr1.remove(i)
+                
 
     
     # TODO : FIX IT 
@@ -126,12 +131,6 @@ class Chemistry_game(State) :
     def check_combine_element(self, mouse_pos) : 
         pass
 
-
-   
-    # TODO : FIX IT 
-    def change_mouse_pos(self, mouse_pos) : 
-        pass
-    
 
     def update(self) : 
         pass
