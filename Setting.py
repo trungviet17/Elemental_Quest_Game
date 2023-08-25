@@ -63,7 +63,7 @@ class Setting :
 
         # start button 
         self.start_button_rad = 50 
-        self.start_button_center = (600, 300)
+        self.start_button_center = (600, 400)
         self.start_button_color = (128, 128, 128)
         self.start_button_text_color = (255, 253, 204)
         self.start_button = pygame.image.load('res\\btn\\Button - PS Circle 1.png')
