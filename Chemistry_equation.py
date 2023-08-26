@@ -34,7 +34,7 @@ class Chemistry_game(State) :
         # check game logic 
         self.game_logic = Game_Logic()
         
-        # target element 
+        
         self.target = self.level.level_target
 
         # aboard
@@ -49,8 +49,9 @@ class Chemistry_game(State) :
         self.element_board_long = self.aboard.element_up_but.img_rect.centery - self.aboard.element_down_but.img_rect.centery
         self.element_board_indx = 0
 
-    
+        
         self.default_element()
+        #self.set_target()
         
     def render(self) : 
         # check event 
@@ -102,6 +103,8 @@ class Chemistry_game(State) :
                 e = Element(i, self)
                 self.elements[i] = 1
                 self.element_in_board.append(e)
+
+   
         
 
     # all update of element
@@ -118,27 +121,39 @@ class Chemistry_game(State) :
         
 
         self.element_draw_todash()
-        self.update_element(self.element_in_board, self.element_in_equa)
+        self.update_element_dash_equa()
         self.element_draw_toequ()
         
-        self.update_element(self.element_in_equa, self.element_in_board)
+        self.update_element_equa_dash()
         self.check_combine_element()
         self.element_draw_toequ()
         self.element_draw_todash()
 
-
+    # TODO: FIX IT 
     # update element 
-    def update_element(self, arr1, arr2) : 
-        if len(arr1) == 0 : return 
-        for i in arr1 :
+    def update_element_equa_dash(self) : 
+        if len(self.element_in_equa) == 0 : return 
+        for i in self.element_in_equa :
             if i.action : 
-                arr2.insert(self.element_board_indx,i) 
-                arr1.remove(i)
+                if (i.tag_name not in self.elements or self.elements[i.tag_name] <= 0) : 
+                    self.element_in_board.insert(self.element_board_indx,i)
+                    self.elements[i.tag_name] = 1
+                else : self.elements[i.tag_name] += 1 
+                self.element_in_equa.remove(i)
+                return
+            
+    def update_element_dash_equa(self) : 
+        if len(self.element_in_board) == 0 : return 
+        for i in self.element_in_board : 
+            if i.action : 
+                self.element_in_equa.insert(0, i)
+                if (self.elements[i.tag_name] == 1) : self.element_in_board.remove(i)
+                self.elements[i.tag_name] -= 1
                 return
                 
 
     
-    # TODO : FIX IT 
+   
     # check the new element after click start  
     def check_combine_element(self) : 
         if (len(self.element_in_equa) == 0) : return
@@ -156,9 +171,19 @@ class Chemistry_game(State) :
 
             else : 
                 for i in self.element_in_equa : 
-                    self.element_in_board.insert(0,  i)
+                    if (i.tag_name not in self.elements or self.elements[i.tag_name] == 0) :
+                        self.element_in_board.insert(0,  i)
+                        self.elements[i.tag_name] = 1
+                    else : 
+                        self.elements[i.tag_name] += 1
                 self.element_in_equa.clear()
 
+    # TODO : check result 
+    def check_result(self, element) : 
+        if (element.tag_name in self.target) : 
+            self.target.remove(element.tag_name)
+
+            
    
 
 

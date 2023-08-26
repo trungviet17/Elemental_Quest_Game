@@ -72,7 +72,7 @@ class Aboard :
         self.close_target_but = Title_Button(0, 0, self.setting.next_button, self.screen, self.scale - 0.15)
         self.isOpen = False
 
-        for i in c_game.target : 
+        for i in c_game.level.level_target : 
             tmp = Target(i, self.setting, self.scale)
             self.game_target.append(tmp)
 
@@ -187,7 +187,7 @@ class Aboard :
         self.close_target_but.img_rect.center = self.aboard_left_rect.midright
 
         
-        for i in range(len(self.game_target)) : 
+        for i in range(len(list(self.game_target))) : 
             self.game_target[i].bg_img_rect.centerx = self.aboard_left_rect.centerx - 10
             if (i < 3) : 
                 self.game_target[i].bg_img_rect.centery = (i + 1) * 100
