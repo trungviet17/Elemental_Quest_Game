@@ -49,6 +49,7 @@ class Aboard :
 
         self.score_nt = self.font.render(str(self.score), True, (255, 255, 255))
         self.move = self.font.render(str(self.num_move), True, (255, 255, 255))
+        self.level = self.font_num.render(self.game_level, True,(255, 255, 255) )
 
         self.heart_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale - 0.1 )
         self.luck_button = Title_Button(0, 0, self.setting.match_help_bg, self.screen, self.scale - 0.1 )
@@ -171,6 +172,10 @@ class Aboard :
         self.level_banner_rect.centerx = self.level_bg_rect.centerx
         self.level_banner_rect.centery = self.level_bg_rect.centery - 30
 
+        self.level_rect = self.level.get_rect()
+        self.level_rect.centerx = self.level_banner_rect.centerx 
+        self.level_rect.centery = self.level_bg_rect.centery
+
         self.element_down_but.img_rect.bottom = self.aboard_down_rect.top + 1
         self.element_down_but.img_rect.left = self.aboard_down_rect.right + 70
 
@@ -220,6 +225,7 @@ class Aboard :
         self.screen.blit(self.time_tb, self.time_tb_rect)
         self.screen.blit(self.move_tb, self.move_tb_rect)
         self.screen.blit(self.level_banner, self.level_banner_rect)
+        self.screen.blit(self.level, self.level_rect)
 
         
         self.screen.blit(self.score_nt, self.score_nt_rect)

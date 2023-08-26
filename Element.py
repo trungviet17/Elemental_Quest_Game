@@ -25,8 +25,8 @@ class Element :
         # setting information
         self.font = pygame.font.Font('res\\font\\SuperBubble-Rpaj3.ttf', 20)
         self.text = self.font.render(c_tag, True, self.setting.element_text_color)
-        # self.num = 1
-        self.sub_font = pygame.font.Font('res\\font\\SpeedRushItalic-GOYoa.ttf', 10)
+        self.sub_font = pygame.font.Font('res\\font\\SpeedRushItalic-GOYoa.ttf', 30)
+        self.num_vis = self.sub_font.render(str(1), True, (255,255,255))
        # self.update_num()
 
         self.isPress = False
@@ -65,4 +65,14 @@ class Element :
         self.text_rect = self.text.get_rect()
         self.text_rect.center = self.img_to_scr_rect.center
 
+        self.num_vis_rect = self.num_vis.get_rect()
+        self.num_vis_rect.centerx = self.img_to_scr_rect.centerx 
+        self.num_vis_rect.centery = self.img_to_scr_rect.centery
+
+    def draw_infor(self, num) : 
+        self.num_vis = self.sub_font.render(str(num), True, (255,255,255))
+        self.num_vis_rect.centerx = self.img_to_scr_rect.centerx + 30
+        self.num_vis_rect.centery = self.img_to_scr_rect.centery + 30
+        pygame.draw.circle(self.screen, (204, 204, 255), self.num_vis_rect.center, 15)
+        self.screen.blit(self.num_vis, self.num_vis_rect)
     

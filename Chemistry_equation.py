@@ -1,5 +1,4 @@
 import pygame
-import sys
 from Element import Element
 from Button import Title_Button
 from Game_Logic import Game_Logic
@@ -61,9 +60,6 @@ class Chemistry_game(State) :
         self.update_screen()
 
        
-        
-
-
     # check event from player
     def check_event(self) : 
        pass
@@ -73,7 +69,6 @@ class Chemistry_game(State) :
         # init background
         self.back_ground.draw()
        
-
         self.update_equation_table()
 
         self.aboard.draw()
@@ -86,6 +81,7 @@ class Chemistry_game(State) :
             self.element_in_board[i].img_to_scr_rect.centerx = self.aboard.element_down_but.img_rect.centerx
             self.element_in_board[i].img_to_scr_rect.centery = self.aboard.element_up_but.img_rect.centery - (i + 1 - self.element_board_indx) * self.element_board_long // 5
             self.element_in_board[i].draw()
+            self.element_in_board[i].draw_infor(self.elements[self.element_in_board[i].tag_name])
 
     # print element to equa
     def element_draw_toequ(self) : 
@@ -94,6 +90,7 @@ class Chemistry_game(State) :
             self.element_in_equa[i].img_to_scr_rect.centery = self.setting.equation_position[i][1]
             pygame.draw.line(self.screen, self.setting.start_button_color, self.aboard.start.img_rect.center, (self.setting.equation_position[i][0],self.setting.equation_position[i][1]), 4) 
             self.element_in_equa[i].draw()  
+            
 
 
     # default_element          
@@ -124,15 +121,10 @@ class Chemistry_game(State) :
         self.update_element(self.element_in_board, self.element_in_equa)
         self.element_draw_toequ()
         
-        
         self.update_element(self.element_in_equa, self.element_in_board)
+        self.check_combine_element()
         self.element_draw_toequ()
         self.element_draw_todash()
-
-       
-
-       
-        
 
 
     # update element 
@@ -140,7 +132,7 @@ class Chemistry_game(State) :
         if len(arr1) == 0 : return 
         for i in arr1 :
             if i.action : 
-                arr2.insert(0,i) 
+                arr2.insert(self.element_board_indx,i) 
                 arr1.remove(i)
                 return
                 
@@ -148,8 +140,27 @@ class Chemistry_game(State) :
     
     # TODO : FIX IT 
     # check the new element after click start  
-    def check_combine_element(self, mouse_pos) : 
-        pass
+    def check_combine_element(self) : 
+        if (len(self.element_in_equa) == 0) : return
+
+        if (self.aboard.start.action) : 
+            if (self.game_logic.check_for_new_element(self)) : 
+                self.element_in_equa.clear()
+                for i in self.game_logic.name_after_combine : 
+                    if i not in self.elements : 
+                        self.elements[i] = 1
+                        e = Element(i, self)
+                        self.element_in_board.insert(0,  e)
+                    else : 
+                        self.elements[i] += 1
+
+            else : 
+                for i in self.element_in_equa : 
+                    self.element_in_board.insert(0,  i)
+                self.element_in_equa.clear()
+
+   
+
 
 
     def update(self) : 

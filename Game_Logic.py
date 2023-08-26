@@ -5,9 +5,9 @@ class Game_Logic :
         self.name_after_combine = []
 
     def check_for_new_element(self, c_game) : 
-        if (len(c_game.element_for_equa.sprites()) == 0) : return False
+        if (len(c_game.element_in_equa) == 0) : return False
         link = 'https://chemequations.com/en/?s='
-        for i in c_game.element_for_equa.sprites() : 
+        for i in c_game.element_in_equa : 
             link  = link  + i.tag_name + '+%2B+'
         link  += '&ref=input'
         res = requests.get(link)
